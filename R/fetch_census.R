@@ -180,11 +180,6 @@ read_census_trade_manifest <- function() {
   read_csv(file.path(census_trade_store, "manifest.csv"), col_types = "ccDcic")
 }
 
-# The store's list of country codes and names, from the latest month stored.
-read_census_trade_countries <- function() {
-  read_csv(file.path(census_trade_store, "countries.csv"), col_types = cols(.default = "c"))
-}
-
 # The store's product code lists, with descriptions and end-use categories.
 # Codes change each January, so each year has its own list.
 read_census_trade_codes <- function(flows, years) {
@@ -194,117 +189,6 @@ read_census_trade_codes <- function(flows, years) {
         mutate(flow, year, .before = 1)
     }) |>
     list_rbind()
-}
-
-# Release dates of the monthly trade report (FT-900), one row per month of
-# data, including months not yet released. The page's first table is the
-# FT-900; the others are for other Census releases. Dates not yet set read
-# "TBD" and come back as NA.
-# https://www.census.gov/foreign-trade/reference/release_schedule.html
-fetch_census_trade_schedule <- function() {
-  rows <- xml2::read_html("https://www.census.gov/foreign-trade/reference/release_schedule.html") |>
-    xml2::xml_find_first("//table") |>
-    xml2::xml_find_all(".//tr[td]")
-  cell <- \(i) str_squish(xml2::xml_text(xml2::xml_find_first(rows, str_glue("td[{i}]"))))
-
-  tibble(month = cell(1), released = mdy(cell(2), quiet = TRUE)) |>
-    filter(str_detect(month, "^[A-Z][a-z]+ \\d{4}$")) |>
-    mutate(month = my(month))
-}
-
-# Census posts only the latest monthly trade report (FT-900), so a refresh saves
-# what it reads.
-# https://www.census.gov/foreign-trade/Press-Release/current_press_release/index.html
-download_census_ft900_exhibit <- function(number) {
-  path <- tempfile(fileext = ".xlsx")
-  download.file(
-    str_glue("https://www.census.gov/foreign-trade/Press-Release/current_press_release/exh{number}.xlsx"),
-    path,
-    mode = "wb",
-    quiet = TRUE
-  )
-  path
-}
-
-# One exhibit of the FT-900 by month, in long form: one row per block, month,
-# and series, in millions of dollars. The sheets spread each header over several
-# rows, so `series` names the value columns left to right. Exhibits in blocks,
-# such as exports above imports, name each block in the row above it. Months
-# revised in this release are marked "(R)". Some exhibits repeat the previous
-# month as published a month earlier, in the row below its label.
-fetch_census_ft900_exhibit <- function(number, series) {
-  readxl::read_excel(download_census_ft900_exhibit(number), col_names = c("label", series), col_types = "text") |>
-    mutate(
-      label = coalesce(label, if_else(str_detect(lag(label), "published last month"), lag(label), NA)),
-      block = if_else(is.na(label) & .data[[series[1]]] %in% c("Exports", "Imports"), .data[[series[1]]], NA),
-      year = as.integer(str_extract(label, "^\\d{4}$"))
-    ) |>
-    fill(block, year) |>
-    filter(str_detect(label, str_c("^(", str_c(month.name, collapse = "|"), ")"))) |>
-    transmute(
-      block = str_to_lower(block),
-      date = make_date(year, match(word(label), month.name)),
-      revised = str_detect(label, fixed("(R)")),
-      published_last_month = str_detect(label, "published last month"),
-      across(all_of(series), \(x) suppressWarnings(as.numeric(x)))
-    ) |>
-    pivot_longer(all_of(series), names_to = "series") |>
-    filter(!is.na(value))
-}
-
-# FT-900 exhibit 19: seasonally adjusted goods trade by country and area, Census
-# basis, in millions of dollars, for the latest two months. Each block (balance,
-# exports, imports) lists countries under its name. The month headers sit in the
-# fourth row; the previous month's header is merged over a column of revision
-# marks and the column of values.
-fetch_census_ft900_countries <- function() {
-  sheet <- readxl::read_excel(
-    download_census_ft900_exhibit(19),
-    col_names = FALSE,
-    col_types = "text",
-    .name_repair = "unique_quiet"
-  )
-  months <- my(str_squish(unlist(sheet[4, c(2, 3)])))
-
-  sheet |>
-    select(country = 1, latest = 2, previous = 4) |>
-    mutate(block = if_else(country %in% c("Balance", "Exports", "Imports") & is.na(latest), str_to_lower(country), NA)) |>
-    fill(block) |>
-    filter(!is.na(block), !is.na(latest)) |>
-    pivot_longer(c(latest, previous), names_to = "month") |>
-    transmute(block, country, date = months[match(month, c("latest", "previous"))], value = as.numeric(value))
-}
-
-# Monthly U.S. goods trade by Census end-use category from the international
-# trade API, not seasonally adjusted, in dollars: the six principal categories
-# (level EU1) and about 140 detailed ones (EU5), with their names.
-fetch_census_trade_end_use <- function(flow, from) {
-  prefix <- if (flow == "imports") "I" else "E"
-  value <- if (flow == "imports") "GEN_VAL_MO" else "ALL_VAL_MO"
-  response <- httr::GET(
-    str_glue("https://api.census.gov/data/timeseries/intltrade/{flow}/enduse"),
-    query = list(
-      get = str_glue("{value},{prefix}_ENDUSE,{prefix}_ENDUSE_LDESC,COMM_LVL"),
-      CTY_CODE = "-",
-      time = str_glue("from {format(from, '%Y-%m')}"),
-      key = Sys.getenv("CENSUS_API_KEY")
-    )
-  )
-  httr::stop_for_status(response)
-  rows <- jsonlite::fromJSON(httr::content(response, as = "text", encoding = "UTF-8"))
-
-  rows[-1, ] |>
-    as_tibble(.name_repair = \(x) make.unique(rows[1, ])) |>
-    filter(COMM_LVL %in% c("EU1", "EU5")) |>
-    transmute(
-      date = ym(time),
-      flow,
-      level = COMM_LVL,
-      code = .data[[str_glue("{prefix}_ENDUSE")]],
-      description = str_to_sentence(.data[[str_glue("{prefix}_ENDUSE_LDESC")]]) |>
-        str_replace_all(c("\\bcanada\\b" = "Canada", "\\bmexico\\b" = "Mexico", "\\bu\\.s\\." = "U.S.")),
-      value = as.numeric(.data[[value]])
-    )
 }
 
 # One sheet of a Business Trends and Outlook Survey download, such as

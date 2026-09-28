@@ -404,80 +404,10 @@ h2.topics-heading {
   margin: 0 0 var(--space-2);
 }
 
-/* Data tables: compact rows in the chart font, with tabular figures so numbers
-   line up. */
-.table {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  font-variant-numeric: tabular-nums;
-  width: auto;
-  min-width: 60%;
-  margin: var(--space-1) 0 var(--space-1);
-  background: transparent;
-}
-
-/* A table's title and subtitle match a chart's, so tables and charts read
-   alike. */
-.table-heading p {
-  font-family: var(--sans);
-  margin: 0;
-}
-
-main .table-heading p:first-child {
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--ink);
-}
-
-main .table-heading p + p {
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: var(--text);
-  margin-top: 0.2rem;
-}
-
-.table-heading + .table,
-.table-heading + table {
-  margin-top: var(--space-2);
-}
-
-/* A second chart or table in the same section starts well clear of the first. */
-.chart-source + .table-heading,
+/* A second chart in the same section starts well clear of the first. */
 .chart-source + picture {
   display: block;
   margin-top: var(--space-4);
-}
-
-/* Page facts, such as a release date, set apart from the text. */
-.meta,
-.meta p {
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
-.meta {
-  margin-bottom: var(--space-4);
-}
-
-.table > :not(caption) > * > * {
-  padding: 0.1rem 0.6rem;
-  line-height: 1.4;
-  background: transparent;
-  border-bottom-color: #e6e5e1;
-}
-
-.table > :not(caption) > * > *:first-child {
-  padding-left: 0;
-  white-space: nowrap;
-}
-
-.table > thead > tr > th {
-  font-weight: 700;
-  color: var(--ink);
-  vertical-align: bottom;
-  border-bottom-color: #3a3a38;
 }
 
 /* Phones: a narrower gutter and smaller type. */
@@ -521,22 +451,6 @@ main .table-heading p + p {
   .chart-notes dl {
     grid-template-columns: 1fr;
     gap: 0;
-  }
-
-  /* Tables scroll inside themselves rather than widening the page. */
-  .table {
-    display: block;
-    overflow-x: auto;
-    min-width: 0;
-    font-size: 0.8rem;
-  }
-
-  .table > :not(caption) > * > * {
-    padding: 0.1rem 0.35rem;
-  }
-
-  .table > :not(caption) > * > *:first-child {
-    white-space: normal;
   }
 
   .chart-notes dd {

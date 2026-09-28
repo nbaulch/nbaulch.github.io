@@ -9,7 +9,6 @@ project:
     - interest-rates.qmd
     - inflation.qmd
     - trade.qmd
-    - trade-release.qmd
     - sources.qmd
     - 404.qmd
   resources:
@@ -44,10 +43,6 @@ website:
           - href: inflation.qmd
             text: Inflation
           - href: trade.qmd
-            text: Trade
-      - text: Releases
-        menu:
-          - href: trade-release.qmd
             text: Trade
       - href: resume.qmd
         text: Resume
