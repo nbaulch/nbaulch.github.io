@@ -13,6 +13,8 @@ project:
     - sources.qmd
     - 404.qmd
   resources:
+    # Proves ownership to Google Search Console; must stay at the site root, unchanged.
+    - google361086dfd7d94036.html
     - fonts/*.ttf
     - fonts/*.woff2
     - images/*
