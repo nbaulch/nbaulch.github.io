@@ -93,19 +93,27 @@ headline_rows <- c(
   imports_total = "Imports"
 )
 
-headline |>
+headline_table <- headline |>
   filter(series %in% names(headline_rows), date %in% c(latest_month, previous_month)) |>
   mutate(column = case_when(published_last_month ~ "first", date == latest_month ~ "latest", .default = "previous")) |>
   select(series, column, value) |>
   pivot_wider(names_from = column, values_from = value) |>
+  mutate(series = headline_rows[series]) |>
+  arrange(match(series, headline_rows))
+
+headline_table |>
+  transmute(series, latest, previous, previous_first_published = first) |>
+  mutate(across(where(is.numeric), \(x) round(x / 1e3, 3))) |>
+  write_csv(file.path(chart_dir, "output", "headline.csv"))
+
+headline_table |>
   transmute(
-    series = headline_rows[series],
+    series,
     "{month_short(latest_month)}" := billions(latest),
     "{month_short(previous_month)}" := billions(previous),
     Change = change((latest - previous) / 1e3),
     "Revision to {month_short(previous_month)}" := change((previous - first) / 1e3)
   ) |>
-  arrange(match(series, headline_rows)) |>
   markdown_table(file.path(chart_dir, "output", "headline.md"))
 
 # Product groups as on the goods balance chart, for gold here and for
@@ -182,7 +190,7 @@ months_to_date <- if (latest_month == quarter_start) {
 }
 annual_rate <- \(current, previous) sprintf("%+.1f", 100 * ((current / previous)^4 - 1))
 
-real_goods |>
+real_goods_by_quarter <- real_goods |>
   filter(series == "total", !published_last_month, date >= quarter_start - months(3)) |>
   mutate(period = if_else(date >= quarter_start, "current", "previous")) |>
   summarise(value = mean(value), .by = c(block, period)) |>
@@ -190,8 +198,16 @@ real_goods |>
   mutate(balance = exports - imports) |>
   pivot_longer(-period, names_to = "series") |>
   pivot_wider(names_from = period) |>
+  mutate(series = c(exports = "Exports", imports = "Imports", balance = "Balance")[series])
+
+real_goods_by_quarter |>
+  transmute(series, previous_quarter = previous, quarter_to_date = current) |>
+  mutate(across(where(is.numeric), \(x) round(x / 1e3, 3))) |>
+  write_csv(file.path(chart_dir, "output", "real-goods.csv"))
+
+real_goods_by_quarter |>
   transmute(
-    series = c(exports = "Exports", imports = "Imports", balance = "Balance")[series],
+    series,
     "{quarter_name(quarter_start - months(3))}" := billions(previous),
     "{quarter_name(quarter_start)}, {months_to_date}" := billions(current),
     "Change" := change((current - previous) / 1e3),
@@ -428,7 +444,7 @@ duties_chart <- duties_by_month |>
   scale_y_continuous(labels = dollars) +
   theme_chart()
 
-duties |>
+duties_by_country <- duties |>
   filter(date %in% c(latest_month, year_earlier)) |>
   summarise(
     duties = sum(cal_dut[date == latest_month]) / 1e9,
@@ -438,8 +454,16 @@ duties |>
   ) |>
   slice_max(duties, n = 10) |>
   left_join(countries, by = "country_code") |>
+  mutate(country = country_name(country))
+
+duties_by_country |>
+  transmute(country, duties, duties_year_earlier, tariff_rate = rate) |>
+  mutate(across(where(is.numeric), \(x) round(x, 3))) |>
+  write_csv(file.path(chart_dir, "output", "duties-by-country.csv"))
+
+duties_by_country |>
   transmute(
-    country = country_name(country),
+    country,
     "Duties, {month_short(latest_month)}" := sprintf("%.2f", duties),
     "{month_short(year_earlier)}" := sprintf("%.2f", duties_year_earlier),
     "Tariff rate, %" := sprintf("%.1f", rate)
