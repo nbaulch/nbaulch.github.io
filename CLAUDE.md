@@ -123,17 +123,44 @@ The standard is a repo Hadley Wickham would be proud of: well thought out, funct
 - On your own machine, install R and Quarto normally, then run `renv::restore()` once.
 - Keep data pulls scripted and reproducible. Don't commit hand-edited data.
 
-## Writing style for anything published
+## Writing
 
-Plain, measured, declarative, and neutral. No marketing language. Em dashes are fine for an aside, not for effect. Charts follow `STYLE.md`: no acronyms on a chart except ones every reader knows, such as GDP and AI, and notes define terms in plain words rather than with equations.
+The standard is text an Economist sub-editor would pass and a busy senior official would thank you for: plain, short, specific, and neutral. Readers come for the charts. Text exists to get them to the chart and to make it readable, then gets out of the way. Wordy text is a failure, not a safe default.
 
-- **The paragraph above a chart says why it is worth watching**, in one to three sentences: the question it bears on, who is debating it, and whose analysis it follows. It never says what the data show: no current values, no direction, no conclusion.
-- **Be factual about what is measured.** Name things for what they are. If a category is broader than its label, such as "AI investment" that includes software spending unrelated to AI, name the components instead.
-- **The title names what the chart shows**, not a finding. The subtitle gives measurement details and units.
-- **Annotations are neutral references only**, such as a policy goal or a historical average, never a callout on a value or a turn in the data.
-- **Notes below the chart are short definitions only.**
-- **Don't repeat on the chart what the chart already shows**, such as the data's end date in the image's source line. The release date goes in the notes below the chart.
-- **Smooth the data when noise hides the signal**, and say how in the subtitle, such as four-quarter averages.
+- **Every sentence earns its place.** Before keeping one, ask what a reader loses if it goes. If the answer is nothing, or something said elsewhere, cut it. The first edit of any draft removes; rewording comes second.
+- **Say it once, in the right place.** Each fact has one home: what is shown in the title; units, basis, and adjustment in the subtitle; series names in the legend; definitions on the sources page; method, caveats, and reasoning in the spec. Page text never restates any of them.
+- **Page text has one job:** on a topic page, one to three sentences on why a chart is worth watching, the question it bears on, who is debating it, and whose analysis it follows. It never says what the data show: no values, no direction, no conclusion. Release pages have no paragraphs at all. Tables and charts carry themselves.
+- **No explaining the method on the page.** Why a series is adjusted, how a measure is built, what a revision means: the spec holds it, or the sources page if a reader needs it to read the chart.
+- **Plain words, named for what they are.** "Imports of computers", not "AI hardware". Everyday terms over jargon; no acronyms a general reader doesn't know on sight. If a category is broader than its label, name the components.
+- **No filler.** No "this chart shows", "it is worth noting", "importantly", "key", or "notably". No hedges, no throat-clearing, no summary of what was just said. Titles are under ten words, subtitles one line.
+- **The same thing has the same name everywhere**: in titles, legends, tables, notes, and page text.
+- Plain, measured, declarative. No marketing language. Em dashes for an aside, not for effect. Sentence case.
+
+Charts follow `STYLE.md`. The title names what the chart shows, never a finding. Annotations are neutral references only, such as a policy goal or a historical average. Smooth data when noise hides the signal, and say how in the subtitle.
+
+## Design
+
+The standard is a site Edward Tufte would recognize: quiet, printed-report restraint, where the charts are the only thing that draws the eye. It should feel like a well-set page, not a web app. Decoration is a failure, not polish.
+
+- **Content first; the design disappears.** No cards, boxes, shadows, icons, badges, banners, animations, or hero images. The photo on the home page is the one picture that isn't data.
+- **Hierarchy comes from size, weight, and space, never from color or ornament.** One thing is the heading on any part of the page, and nothing competes with it. On a chart section that is the chart's own title.
+- **Space shows what belongs together.** Things that go together sit close; separate things sit clearly apart. Space within a unit is always smaller than space between units. One spacing scale, used everywhere; no one-off margins.
+- **One column, one left edge.** The navbar, text, charts, tables, and footer share a 720px column and align to the same left edge. Nothing is centered except by accident of width.
+- **One pattern per element.** A chart, a table, a section, a source line, and a link each look the same on every page. A new element reuses an existing pattern before a new one is invented, and a change to one instance is made to every instance.
+- **Color is for data.** Page chrome is paper, ink, and greys; one accent blue marks links and nothing else.
+- **Type:** a serif for reading text, the chart sans for everything else, no third family. Body text near 18px, lines of 65 to 75 characters.
+- **Phones are not an afterthought.** Every page works at 390px wide, nothing scrolls sideways, and narrow chart versions are drawn for it.
+- **Add structure only when a second real use shows up**, as in the code. No design for pages or elements that don't exist yet.
+
+## Reviewing published work
+
+Review the page, not the diff, and review it as a skeptical editor who didn't write it. Before calling any change to the site done:
+
+- Render it and look at every affected page top to bottom, on a desktop and at phone width.
+- Read every piece of text and ask whether it needs to exist, following the writing rules above.
+- Check the page against the design rules above: competing headings, uneven or stacked spacing, anything repeated, anything misaligned, any element treated differently from its siblings.
+- Fix the rule, not the instance: when something is wrong in one place, find every other place the same rule applies and fix those too.
+- Show me before and after screenshots.
 
 When I ask for options, give a recommendation. When I'm unsure, show me a preview rather than describing it.
 

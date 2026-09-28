@@ -9,9 +9,8 @@ The house style follows Datawrapper's published guidance, adapted for static cha
 - Grey is the most used color. It carries text, axes, gridlines, and context data, so the data that matters can use color.
 - Readers shouldn't have to decode anything that plain words could say.
 - **Every chart and table stands on its own**: a title saying what is shown, a subtitle with units, basis, and adjustment, a source line, and a data download. Nothing else is needed to read it.
-- **Say it once.** Nothing in a title, subtitle, legend, column header, or the sources page is repeated in page text.
-- **Page text has one job**: the paragraph on a topic page saying why a chart is worth watching. Release pages have no paragraphs.
-- **One pattern per element.** Charts and tables are treated alike, on every page. When a change fixes one instance, apply it everywhere the same rule applies.
+
+The writing and design principles for the whole site, which these rules apply, are in `CLAUDE.md` under Writing, Design, and Reviewing published work. This guide holds the mechanics.
 
 ## Text
 
