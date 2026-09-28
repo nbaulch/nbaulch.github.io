@@ -55,6 +55,9 @@ format:
   html:
     theme: default
     css: styles.css
+    # Phones use this for home-screen bookmarks; they ignore SVG favicons.
+    include-in-header:
+      text: '<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">'
     grid:
       body-width: 720px
     toc: false

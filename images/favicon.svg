@@ -1,6 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#f6f3ec"/>
-  <rect x="6" y="16" width="5.5" height="10" fill="#b8b6b0"/>
-  <rect x="13.25" y="11" width="5.5" height="15" fill="#b8b6b0"/>
-  <rect x="20.5" y="6" width="5.5" height="20" fill="#1f6fb2"/>
+  <rect width="32" height="32" rx="7" fill="#f6f3ec"/>
+  <polyline points="2,27 9,23 13.5,25 21,18.5 30,21" fill="none" stroke="#222220" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <g transform="translate(8 4.4) scale(0.95)">
+    <path d="M3.2 8.6 L-1.6 5.2 L0.4 11.4 Z" fill="#4a4a47"/>
+    <ellipse cx="8" cy="10.2" rx="6.4" ry="5" fill="#4a4a47"/>
+    <ellipse cx="10.6" cy="11.4" rx="3.9" ry="3.4" fill="#d9731f"/>
+    <circle cx="13.4" cy="5.8" r="3.9" fill="#4a4a47"/>
+    <path d="M17 4.7 L20.4 6 L17 7.3 Z" fill="#d4a62a"/>
+    <circle cx="14.6" cy="5" r="1.05" fill="#f6f3ec"/>
+    <path d="M4.4 9.2 C6 6.6 10 7.2 11.2 10.2 C9 12.4 5.8 12.1 4.4 9.2 Z" fill="#2f2f2d"/>
+    <path d="M7.4 14.8 L7.4 16.2 M9.6 14.8 L9.6 16.2" stroke="#222220" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
 </svg>
