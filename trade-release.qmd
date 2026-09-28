@@ -6,7 +6,7 @@ title: "Trade release"
 {{< include charts/trade-release/output/release.md >}}
 :::
 
-The latest monthly report on U.S. trade in goods and services, from the Census Bureau and the Bureau of Economic Analysis. Seasonal adjustment has been harder since 2020, so where the data allow, the page shows both: seasonally adjusted figures against the previous month, and unadjusted figures against a year earlier.
+The latest monthly report on U.S. trade in goods and services, from the Census Bureau and the Bureau of Economic Analysis.
 
 ## Headline
 
@@ -38,8 +38,6 @@ Chained 2017 dollars, seasonally adjusted, Census basis, billions of dollars a m
 
 ## By product
 
-Census does not seasonally adjust trade at this detail, so the comparison is with a year earlier.
-
 ```{=html}
 <picture>
   <source media="(max-width: 600px)" srcset="charts/trade-release/output/product-changes-narrow.png">
@@ -60,7 +58,7 @@ These imports bear on estimates of AI investment and its effect on GDP. The char
 
 ## By country
 
-Goods balance with the twelve largest partners either way, Census basis, billions of dollars. Seasonally adjusted except the change from a year earlier. Census finds no seasonal pattern in trade with Ireland and the Netherlands, so their figures are never adjusted.
+Goods balance with the twelve largest partners either way, Census basis, billions of dollars. Seasonally adjusted except the change from a year earlier.
 
 {{< include charts/trade-release/output/partners.md >}}
 
