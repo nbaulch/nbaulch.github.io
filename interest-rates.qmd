@@ -1,0 +1,50 @@
+---
+title: "Interest rates"
+---
+
+Charts on long-term U.S. interest rates.
+
+## The 10-year yield
+
+The 10-year Treasury yield sets the cost of long-term borrowing across the economy. The Fed Board's model splits it into the short-term rates and inflation investors expect over 10 years, and the extra return they require for the risk of holding a long-term bond instead. Which parts move bears on debates over how fiscal policy, Treasury supply, and borrowing for AI affect long-term rates.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/yield-decomposition/output/yield-decomposition-narrow.png">
+  <img src="charts/yield-decomposition/output/yield-decomposition.png" class="chart" alt="Stacked bar chart, monthly since December 2023, of the change in the 10-year Treasury yield split into expected real short-term rates, real term premium, expected inflation, and inflation risk premium, from the Fed Board model, with a line for the yield.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#yield-decomposition)
+:::
+
+## Two models
+
+Models of the term premium can split the same change in yields differently. The Fed Board and New York Fed models are the two most widely cited, so the chart shows the split from each, side by side, since February 2026.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/yield-rise-by-model/output/yield-rise-by-model-narrow.png">
+  <img src="charts/yield-rise-by-model/output/yield-rise-by-model.png" class="chart" alt="Two stacked bar charts, weekly since the week of February 23, 2026, of the change in the 10-year Treasury yield split into expected short-term rates and term premium, one for the Fed Board model and one for the New York Fed model, each with a line for the yield.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#yield-rise-by-model)
+:::
+
+## Supply of long-term debt
+
+Investors have to absorb new long-term debt whoever issues it, and more of it can raise the term premium. Large technology companies now issue bonds to fund AI investment alongside Treasury's borrowing. Measuring both in 10-year equivalents, the amount of 10-year notes with the same sensitivity to interest rates, puts them on a common footing, following work by the [Dallas Fed](https://www.dallasfed.org/research/economics/2026/0210-searls-aifinancing) and Exante Data.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/duration-supply/output/duration-supply-narrow.png">
+  <img src="charts/duration-supply/output/duration-supply.png" class="chart" alt="Stacked area chart, monthly since 2011, of the 12-month change in debt held by private investors, in 10-year equivalents, from Treasury securities and big tech bonds.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#duration-supply)
+:::

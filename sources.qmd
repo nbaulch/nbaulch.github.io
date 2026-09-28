@@ -1,0 +1,61 @@
+---
+title: "Sources and data"
+---
+
+Sources, release dates, and definitions for each chart, with its data to download.
+
+## The AI economy
+
+### Investment {#ai-investment-gdp}
+
+{{< include charts/ai-investment-gdp/output/ai-investment-gdp-notes.md >}}
+
+### Adoption {#ai-adoption}
+
+{{< include charts/ai-adoption/output/ai-adoption-notes.md >}}
+
+### Productivity {#productivity-decomposition}
+
+{{< include charts/productivity-decomposition/output/productivity-decomposition-notes.md >}}
+
+## Interest rates
+
+### The 10-year yield {#yield-decomposition}
+
+{{< include charts/yield-decomposition/output/yield-decomposition-notes.md >}}
+
+### Two models {#yield-rise-by-model}
+
+{{< include charts/yield-rise-by-model/output/yield-rise-by-model-notes.md >}}
+
+### Supply of long-term debt {#duration-supply}
+
+{{< include charts/duration-supply/output/duration-supply-notes.md >}}
+
+## Inflation
+
+### Underlying inflation {#inflation-measures}
+
+{{< include charts/inflation-measures/output/inflation-measures-notes.md >}}
+
+### Breadth {#inflation-breadth}
+
+{{< include charts/inflation-breadth/output/inflation-breadth-notes.md >}}
+
+### PCE and CPI {#pce-cpi-gap}
+
+{{< include charts/pce-cpi-gap/output/pce-cpi-gap-notes.md >}}
+
+### Software and electricity {#software-electricity-prices}
+
+{{< include charts/software-electricity-prices/output/software-electricity-prices-notes.md >}}
+
+## Trade
+
+### Tariff rates {#effective-tariff-rate}
+
+{{< include charts/effective-tariff-rate/output/effective-tariff-rate-notes.md >}}
+
+### Goods trade balance {#goods-balance}
+
+{{< include charts/goods-balance/output/goods-balance-notes.md >}}

@@ -1,0 +1,31 @@
+# Keeps the Census trade store current as release assets on this repo. Runs
+# daily; a run with nothing new from Census finishes in a few minutes. The
+# first run backfills from 2010 and may take two runs to finish.
+name: Update Census trade data
+
+on:
+  schedule:
+    - cron: "23 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: census-trade-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v7
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: renv
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-renv@v2
+      - run: Rscript scripts/update_census_trade.R
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -1,0 +1,97 @@
+---
+title: "Resume"
+format:
+  html:
+    format-links: false
+    grid:
+      body-width: 680px
+  typst:
+    title: "Nicholas Baulch"
+    output-file: nicholas-baulch-resume.pdf
+    papersize: us-letter
+    margin:
+      x: 0.75in
+      y: 0.6in
+    fontsize: 10pt
+    mainfont: "Roboto"
+    font-paths: fonts
+---
+
+::: {.content-visible when-format="html"}
+[Download PDF](nicholas-baulch-resume.pdf)
+:::
+
+```{=typst}
+#set par(justify: false)
+#set text(hyphenate: false)
+#align(center)[nicholas.baulch\@gmail.com · linkedin.com/in/nbaulch · github.com/nbaulch · nbaulch.github.io]
+```
+
+## Experience
+
+### U.S. Bank
+
+**Scenario Design Lead**, 2025–present
+
+- Lead economic scenario design and implementation for U.S. Bank's CCAR, CECL, and ad hoc stress testing programs. Manage and mentor a team of two economists who run the production processes.
+- Brief senior leadership monthly on emerging macroeconomic risks, including trade policy, inflation, commodity shocks, and recession risk, and their implications for the bank.
+- Architected the conversion of the team's core scenario production system from SAS to R, delivered as an internal R package version-controlled in GitLab. The team continues to run and extend it three years later.
+- Appointed AI Champion for Corporate Finance, building AI-assisted workflows for economic analysis and coordinating AI adoption across the department with the enterprise AI Center of Excellence.
+- Own internal audit and regulatory responses for scenario design, including methodology documentation and procedures.
+
+**Macroeconomic Forecasting Economist**, 2023–2025
+
+- Built U.S. Bank's macroeconomic forecasts for baseline and CCAR scenarios in R, Python, and SQL.
+- Led CCAR scenario processes for the Economics Group, including scenario design, governance materials, and regulatory exams.
+- Converted the team's scenario chart packs from Excel to R, automating recurring deliverables.
+
+### U.S. Department of the Treasury, Office of International Affairs
+
+**International Economist**, 2019–2023
+
+- Served as Treasury's lead economist on Ukraine following Russia's 2022 invasion, providing analysis and policy recommendations to senior Treasury and White House leadership. Recipient of the Secretary's Honor Award and Chase Award.
+- Coordinated Treasury's roughly \$215 billion in Exchange Stabilization Fund support backstopping the Federal Reserve's emergency lending facilities during COVID-19, working across Treasury, the Federal Reserve System, and general counsel.
+- Helped lead Treasury's department-wide planning and execution of the 2020 presidential transition, then served as senior advisor to the Acting Deputy Secretary.
+- Formulated U.S. policy on IMF lending, sovereign debt sustainability and transparency, and the macroeconomic impact of central bank digital currencies. Worked extensively with IMF, World Bank, and national data sources and built monitoring tools for sovereign debt and IMF programs.
+- Produced Treasury's annual reports to Congress on the cost of U.S. participation in the international financial institutions.
+
+### Internal Revenue Service
+
+**Economist, Presidential Management Fellow**, 2018–2019
+
+- Analyzed terabyte-scale taxpayer data in SAS, SQL, R, and Python, applying segmentation and logistic regression to identity theft detection and tax-exempt bond noncompliance.
+- Contributed to a spatial analysis of taxpayer assistance center locations, including road network analysis, to evaluate accessibility for underserved filers.
+
+### Cardinal Health
+
+**Solutions and Marketing Consultant**, 2015–2017
+
+- Advised sales leadership on market strategy, prospect forecasting, and customer retention using R and SQL.
+- Led a cross-functional IT project to build an electronic enrollment system, reducing onboarding lead time and process defects.
+
+**Pharmacy Business Consultant**, 2013–2015
+
+- Consulted independent pharmacy owners on margins, inventory, payer contracts, and marketing strategy, retaining \$25 million in annual revenue from at-risk accounts.
+
+## Education
+
+### Johns Hopkins University, School of Advanced International Studies (SAIS)
+
+**M.A., International Economics and Finance**, 2018 (GPA 3.99)
+
+- Coursework: Empirical Economic Forecasting and Modeling, Credit Markets and Credit Risk, Multinational Corporate Finance, Financial Decision Making, Risk Analysis Modeling
+- Capstone: "Estimating Firm-Level Exchange Rate Exposure in Oligopolistic Markets," an econometric analysis of cross-border exchange rate exposures across five markets
+
+### Clemson University
+
+**B.A., Language and International Trade** (GPA 4.0); **B.A., Political Science** (GPA 4.0), 2013
+
+## Awards
+
+- U.S. Treasury Secretary's Honor Award and Chase Award, for analysis and support to Ukraine following Russia's invasion
+- U.S. Bank Shield Award, for automating scenario reporting in R, designing investor day scenarios, and building a model driver dashboard in R Shiny
+- Presidential Management Fellowship
+
+## Skills and tools
+
+Macroeconomic forecasting, scenario design, stress testing (CCAR) and loss reserving (CECL), econometrics and time series, international economics and sovereign debt, AI-assisted analytical workflows. R, Python, SQL, SAS, Git/GitLab, Quarto, Shiny.

@@ -1,0 +1,35 @@
+# Publishes the site to GitHub Pages when main changes.
+# Charts are built in R and committed, so this only assembles the pages.
+name: Publish site
+
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.10.18
+      - run: quarto render
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v5

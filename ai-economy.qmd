@@ -1,0 +1,50 @@
+---
+title: "The AI economy"
+---
+
+Charts on how AI shows up in U.S. economic data.
+
+## Investment
+
+Investment in software, computers, data centers, and power is where spending on AI appears in GDP, and its contribution to GDP growth is widely cited. Many of the computers are imported, and imports subtract from GDP, so the chart shows net trade in computers alongside the investment. The method follows a [July 2026 Federal Reserve note](https://www.federalreserve.gov/econres/notes/feds-notes/the-ai-buildout-and-the-economy-publicly-available-data-to-assess-ais-impact-20260717.html) by Soto, Thieu, and Allen.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/ai-investment-gdp/output/ai-investment-gdp-narrow.png">
+  <img src="charts/ai-investment-gdp/output/ai-investment-gdp.png" class="chart" alt="Stacked bar chart, quarterly since 2022, of the contribution to U.S. real GDP growth from investment in data centers and power, software, and computers, and from net trade in computers, each averaged over four quarters, with dots for the total net of computer trade.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#ai-investment-gdp)
+:::
+
+## Adoption
+
+How widely businesses use AI, and whether use spreads from large firms to small ones, bears on how much AI will change the economy. The Census Bureau asks businesses every two weeks whether they used AI and publishes the answers by firm size. The chart builds on an [April 2026 Federal Reserve note](https://www.federalreserve.gov/econres/notes/feds-notes/monitoring-ai-adoption-in-the-u-s-economy-20260403.html) by Allen.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/ai-adoption/output/ai-adoption-narrow.png">
+  <img src="charts/ai-adoption/output/ai-adoption.png" class="chart" alt="Line chart, since late 2025, of the share of U.S. firms using AI in three size groups: fewer than 50 employees, 50 to 249, and 250 or more, each averaged over the latest three surveys.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#ai-adoption)
+:::
+
+## Productivity
+
+If AI makes businesses more efficient, it should show up in total factor productivity: output growth not explained by more capital, more skilled workers, or businesses working their existing staff and equipment harder. Splitting labor productivity growth into those parts separates efficiency gains from the rest. The chart adapts [Ernie Tedeschi's July 2026 analysis](https://www.stripeeconomics.com/p/ai-and-productivity) for Stripe.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/productivity-decomposition/output/productivity-decomposition-narrow.png">
+  <img src="charts/productivity-decomposition/output/productivity-decomposition.png" class="chart" alt="Stacked bar chart, quarterly since 2022, of contributions to U.S. business sector labor productivity growth from other capital and labor, computers and software, total factor productivity, and utilization, each averaged over four quarters, with dots for labor productivity growth.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#productivity-decomposition)
+:::

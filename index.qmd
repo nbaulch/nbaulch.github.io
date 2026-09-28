@@ -1,0 +1,37 @@
+---
+pagetitle: "Nicholas Baulch"
+image: images/preview.jpg
+format:
+  html:
+    grid:
+      body-width: 640px
+---
+
+```{=html}
+<div class="hero">
+  <img src="images/headshot.jpg" class="headshot" alt="Photo of Nicholas Baulch">
+  <div>
+    <p class="name">Nicholas Baulch</p>
+    <p class="tagline">Economist</p>
+  </div>
+</div>
+```
+
+I'm an economist at U.S. Bank, where I lead scenario design, building the economic scenarios behind the bank's stress tests and loss reserves.
+
+Before that, I spent four years at the U.S. Treasury. I was the lead economist on Ukraine after Russia's 2022 invasion and coordinated Treasury's backstop of the Federal Reserve's emergency lending facilities during COVID-19. I also served as senior advisor to the Acting Deputy Secretary after the 2020 transition.
+
+I live in the Charlotte area with my wife and our twins. I grew up in Ohio and have since lived in South Carolina, Wisconsin, D.C., and Minnesota. Outside work, I run, bike, lift, read fantasy, and play board games.
+
+Most of my work is built in R, and lately I've been using AI tools to do more of it. This site is one result: a small set of charts on the U.S. economy that I keep current. Many extend analyses by other economists that I thought were worth maintaining.
+
+::: {.links}
+[Email](mailto:nicholas.baulch@gmail.com) · [LinkedIn](https://www.linkedin.com/in/nbaulch) · [GitHub](https://github.com/nbaulch) · [Resume](resume.qmd)
+:::
+
+## Charts I'm watching
+
+- [The AI economy](ai-economy.qmd): investment, adoption, and productivity
+- [Interest rates](interest-rates.qmd): the 10-year Treasury yield and who is supplying long-term debt
+- [Inflation](inflation.qmd): measures of consumer price inflation
+- [Trade](trade.qmd): tariffs and the goods trade balance

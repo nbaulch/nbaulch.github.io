@@ -1,0 +1,202 @@
+/* Matches the chart style in STYLE.md: Roboto, warm greys, plain layout, on a
+   warm paper background. */
+
+@font-face {
+  font-family: "Roboto Chart";
+  src: url("fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto Chart";
+  src: url("fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("fonts/SourceSerif4-Variable.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("fonts/SourceSerif4-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+body, .navbar {
+  font-family: "Roboto Chart", sans-serif;
+  color: #4a4a47;
+  background: #f6f3ec;
+  line-height: 1.6;
+}
+
+h1, h3 {
+  color: #222220;
+}
+
+h2 {
+  color: #1d3557;
+}
+
+a {
+  color: #1d4e89;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.navbar {
+  border-bottom: 1px solid #e3ded2;
+}
+
+.nav-footer {
+  background: #f6f3ec;
+  border-top: 1px solid #e3ded2;
+}
+
+/* Chart images have white backgrounds; multiplying them onto the page lets
+   the paper color show through without changing the data colors noticeably. */
+.chart {
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+
+/* Notes and sources are page text rather than part of the chart image, so they
+   stay readable at any screen size. Same darker grey as body text, slightly smaller. */
+.chart-notes {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: 0.75rem;
+}
+
+.chart-notes p {
+  margin-bottom: 0.5rem;
+}
+
+.chart-notes strong {
+  color: #222220;
+}
+
+/* The source ranks below the definitions, so it is smaller and lighter. */
+.chart-source {
+  font-size: 0.85rem;
+  color: #75746f;
+  margin-top: 0.75rem;
+}
+
+/* Page text is set in a serif for reading; names, navigation, and headings stay
+   in the chart font. */
+main p, main li {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #333331;
+}
+
+.chart-notes p, .chart-source, .chart-source p {
+  font-family: "Roboto Chart", sans-serif;
+}
+
+h2 {
+  border-bottom: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+
+/* Home page: round photo beside the name, stacked on phones. */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.headshot {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px #e3ded2;
+}
+
+.hero .name {
+  font-family: "Roboto Chart", sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #222220;
+  margin: 0;
+}
+
+.hero .tagline {
+  font-family: "Roboto Chart", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: #8a6d3b;
+  margin: 0.2rem 0 0;
+}
+
+.links p {
+  font-family: "Roboto Chart", sans-serif;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .headshot {
+    width: 96px;
+    height: 96px;
+  }
+  .hero .name {
+    font-size: 1.7rem;
+  }
+}
+
+.page-footer {
+  font-size: 0.85rem;
+  color: #75746f;
+}
+
+/* Data tables: compact rows in the chart font, with tabular figures so numbers
+   line up. */
+.table {
+  font-family: "Roboto Chart", sans-serif;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  width: auto;
+  min-width: 60%;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.table > :not(caption) > * > * {
+  padding: 0.05rem 0.5rem;
+  line-height: 1.35;
+  border-bottom-color: #e6e5e1;
+}
+
+.table > :not(caption) > * > *:first-child {
+  padding-left: 0;
+  white-space: nowrap;
+}
+
+.table > thead > tr > th {
+  border-bottom-color: #3a3a38;
+}
+
+.table th {
+  font-weight: 700;
+  color: #4a4a47;
+  vertical-align: bottom;
+}

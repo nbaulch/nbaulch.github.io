@@ -1,0 +1,35 @@
+---
+title: "Trade"
+---
+
+Charts on U.S. trade and tariffs.
+
+## Tariff rates
+
+Announced tariffs and the duties importers pay can differ, because of exemptions, claims under trade agreements, and shifts in what the United States buys and from where. A [Federal Reserve Board note](https://www.federalreserve.gov/econres/notes/feds-notes/mind-the-gap-announced-versus-implied-tariff-rates-in-recent-trade-policy-episodes-20260408.html) by Sydney Eck, Trang Hoang, Carter Mix, and Madeleine Ray measures that difference; the chart shows the rate collected on actual imports and, to set aside shifts in the mix, at the products and countries the United States imported in 2024. Both count duty when goods enter, before any refunds, such as those after the Supreme Court's February 2026 ruling on emergency tariffs.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/effective-tariff-rate/output/effective-tariff-rate-narrow.png">
+  <img src="charts/effective-tariff-rate/output/effective-tariff-rate.png" class="chart" alt="Line chart, monthly since 2017, of duties as a percent of the value of U.S. imports, for actual imports and, since 2024, at the 2024 mix of products and source countries.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#effective-tariff-rate)
+:::
+
+## Goods trade balance
+
+Debates over the U.S. trade deficit often turn on a few product groups whose trade can move for reasons of its own: computers and chips, pharmaceuticals, and gold. The chart splits the goods balance into those groups and all other goods, using the Census Bureau's product categories.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/goods-balance/output/goods-balance-narrow.png">
+  <img src="charts/goods-balance/output/goods-balance.png" class="chart" alt="Stacked bar chart, monthly since 2019, of the U.S. goods trade balance in billions of dollars, split into computers and parts, semiconductors and telecom equipment, pharmaceuticals, gold, and all other goods, with dots for the total.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#goods-balance)
+:::

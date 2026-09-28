@@ -1,0 +1,82 @@
+# Rebuilds every chart daily and publishes the ones whose data changed. Runs
+# after each update of the Census trade store, which follows the morning's
+# data releases. A chart is committed only when the CSV of its plotted series
+# changes, so a day with no new data or revisions commits nothing. A chart
+# whose build fails is left as it was, and the run is marked failed after the
+# others are published.
+#
+# Pushes to main with a deploy key, which the main ruleset lets bypass its
+# pull request rule, so the push also runs publish.yml. Needs repository
+# secrets DEPLOY_KEY (the private half of a deploy key with write access),
+# CENSUS_API_KEY, and SEC_USER_AGENT.
+name: Refresh charts
+
+on:
+  workflow_run:
+    workflows: [Update Census trade data]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-charts
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: renv
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-renv@v2
+      # Libraries the ragg graphics device needs to draw charts.
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends libfreetype6 libpng16-16t64 libtiff6 libjpeg-turbo8 libwebp7 libwebpmux3 libharfbuzz0b libfribidi0
+      # The trade store is large; the reader re-downloads only months Census
+      # has revised since the cached copy.
+      - uses: actions/cache@v6
+        with:
+          path: cache/census_trade
+          key: census-trade-${{ github.run_id }}
+          restore-keys: census-trade-
+      - id: rebuild
+        run: |
+          failed=""
+          for build in charts/*/build.R; do
+            chart=$(dirname "$build")
+            echo "::group::$chart"
+            if Rscript "$build"; then
+              if [ -z "$(git status --porcelain -- "$chart/output/*.csv")" ]; then
+                git checkout -q -- "$chart" && git clean -fdq -- "$chart"
+              fi
+            else
+              failed="$failed $(basename "$chart")"
+              git checkout -q -- "$chart" && git clean -fdq -- "$chart"
+            fi
+            echo "::endgroup::"
+          done
+          echo "failed=$failed" >> "$GITHUB_OUTPUT"
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+      - run: |
+          changed=$(git status --porcelain -- charts | awk '{print $2}' | cut -d/ -f2 | sort -u | paste -sd, - | sed 's/,/, /g')
+          if [ -n "$changed" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898702+github-actions[bot]@users.noreply.github.com"
+            git add charts
+            git commit -m "Refresh charts with new data: $changed"
+            git push origin main
+          fi
+      - if: steps.rebuild.outputs.failed != ''
+        run: |
+          echo "::error::Builds failed:${{ steps.rebuild.outputs.failed }}"
+          exit 1

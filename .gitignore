@@ -1,0 +1,14 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Large raw downloads, rebuilt from the fetch functions
+cache/
+
+# Rendered site, built by GitHub Actions on merge to main
+_site/
+.quarto/
+
+/.quarto/
+**/*.quarto_ipynb

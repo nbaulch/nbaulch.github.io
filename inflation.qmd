@@ -1,0 +1,65 @@
+---
+title: "Inflation"
+---
+
+Charts on U.S. consumer price inflation.
+
+## Underlying inflation
+
+Measures of underlying inflation set aside volatile or unusual price changes to gauge where inflation is heading, and the Federal Reserve watches several of them. They are built differently and can give different readings, so the chart shows them together, over time and for the latest month.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/inflation-measures/output/inflation-measures-narrow.png">
+  <img src="charts/inflation-measures/output/inflation-measures.png" class="chart" alt="Two panels. One shows the 12-month change in headline and core PCE prices since 2019, with a shaded range for six other measures of underlying inflation. The other shows each measure's latest 12-month change and six-month change at an annual rate, with a dashed line at the Federal Reserve's 2 percent goal.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#inflation-measures)
+:::
+
+## Breadth
+
+Price increases spread across many categories are harder to attribute to a few one-off shocks than increases concentrated in a few. Kevin Warsh [cited this measure](https://www.federalreserve.gov/newsevents/speech/warsh20260828a.htm) at Jackson Hole in August 2026.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/inflation-breadth/output/inflation-breadth-narrow.png">
+  <img src="charts/inflation-breadth/output/inflation-breadth.png" class="chart" alt="Line chart, monthly since 2000, of the share of 177 consumer spending categories with prices up more than 3 percent over 12 months, with a dashed line for the 2000 to 2019 average.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#inflation-breadth)
+:::
+
+## PCE and CPI
+
+The Federal Reserve's 2 percent goal is for PCE inflation, but CPI is released first and draws more attention. The two indexes differ in what they cover and how they weight it: fees for portfolio management, which move with stock prices, are in PCE but not CPI, and software carries a much larger weight in PCE. The chart follows [Mike Konczal's August 2026 analysis](https://newsletter.mikekonczal.com/p/is-the-actual-inflation-rate-pce).
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/pce-cpi-gap/output/pce-cpi-gap-narrow.png">
+  <img src="charts/pce-cpi-gap/output/pce-cpi-gap.png" class="chart" alt="Line chart, monthly since 2011, of core PCE inflation minus core CPI inflation over 12 months, and the same gap excluding portfolio management and software, with a dashed line for the 2011 to 2019 average.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#pce-cpi-gap)
+:::
+
+## Software and electricity
+
+Software and electricity are the consumer prices most directly tied to AI: software as a product, and electricity as a main input for data centers. Federal Reserve Board economists [have examined](https://www.federalreserve.gov/econres/notes/feds-notes/measurement-of-computer-software-and-accessories-inflation-20260522.html) how well software prices are measured, and Dallas Fed economists [have estimated](https://www.dallasfed.org/research/economics/2026/0305-kay-datacenters) how data center demand affects electricity prices. The chart adapts the Board economists' software analysis to show both items' contributions to PCE inflation.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/software-electricity-prices/output/software-electricity-prices-narrow.png">
+  <img src="charts/software-electricity-prices/output/software-electricity-prices.png" class="chart" alt="Line chart, monthly since 2015, of the contributions of computer software and accessories prices and electricity prices to the 12-month change in the PCE price index, in percentage points.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources, definitions, and data](sources.qmd#software-electricity-prices)
+:::
