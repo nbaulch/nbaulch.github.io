@@ -1,6 +1,5 @@
 ---
 title: "Sources and data"
-subtitle: "Definitions, sources, and data for each chart."
 ---
 
 ::: {.jump}
