@@ -54,5 +54,7 @@ format:
   html:
     theme: default
     css: styles.css
+    grid:
+      body-width: 720px
     toc: false
     anchor-sections: false

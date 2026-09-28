@@ -1,10 +1,6 @@
 ---
 pagetitle: "Nicholas Baulch"
 image: images/preview.jpg
-format:
-  html:
-    grid:
-      body-width: 640px
 ---
 
 ```{=html}
@@ -13,6 +9,7 @@ format:
   <div>
     <p class="name">Nicholas Baulch</p>
     <p class="tagline">Economist</p>
+    <p class="contact"><a href="mailto:nicholas.baulch@gmail.com">Email</a><a href="https://www.linkedin.com/in/nbaulch">LinkedIn</a><a href="https://github.com/nbaulch">GitHub</a><a href="resume.html">Resume</a></p>
   </div>
 </div>
 ```
@@ -25,13 +22,31 @@ I live in the Charlotte area with my wife and our twins. I grew up in Ohio and h
 
 Most of my work is built in R, and lately I've been using AI tools to do more of it. This site is one result: a small set of charts on the U.S. economy that I keep current. Many extend analyses by other economists that I thought were worth maintaining.
 
-::: {.links}
-[Email](mailto:nicholas.baulch@gmail.com) · [LinkedIn](https://www.linkedin.com/in/nbaulch) · [GitHub](https://github.com/nbaulch) · [Resume](resume.qmd)
-:::
+## Charts I'm watching {.topics-heading}
 
-## Charts I'm watching
+```{=html}
+<div class="topics">
+  <a class="topic" href="ai-economy.html">
+    <img src="charts/ai-investment-gdp/output/ai-investment-gdp.png" alt="">
+    <span><span class="topic-name">The AI economy</span><span class="topic-description">Investment, adoption, and productivity</span></span>
+  </a>
+  <a class="topic" href="interest-rates.html">
+    <img src="charts/yield-decomposition/output/yield-decomposition.png" alt="">
+    <span><span class="topic-name">Interest rates</span><span class="topic-description">The 10-year Treasury yield and who is supplying long-term debt</span></span>
+  </a>
+  <a class="topic" href="inflation.html">
+    <img src="charts/inflation-measures/output/inflation-measures.png" alt="">
+    <span><span class="topic-name">Inflation</span><span class="topic-description">Measures of consumer price inflation</span></span>
+  </a>
+  <a class="topic" href="trade.html">
+    <img src="charts/effective-tariff-rate/output/effective-tariff-rate.png" alt="">
+    <span><span class="topic-name">Trade</span><span class="topic-description">Tariffs and the goods trade balance</span></span>
+  </a>
+</div>
+```
 
-- [The AI economy](ai-economy.qmd): investment, adoption, and productivity
-- [Interest rates](interest-rates.qmd): the 10-year Treasury yield and who is supplying long-term debt
-- [Inflation](inflation.qmd): measures of consumer price inflation
-- [Trade](trade.qmd): tariffs and the goods trade balance
+## Data releases
+
+Views of the latest release of a data report, updated on release day.
+
+- [Trade](trade-release.qmd): the monthly report on U.S. international trade in goods and services

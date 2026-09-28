@@ -1,8 +1,7 @@
 ---
 title: "The AI economy"
+subtitle: "Charts on how AI shows up in U.S. economic data."
 ---
-
-Charts on how AI shows up in U.S. economic data.
 
 ## Investment
 

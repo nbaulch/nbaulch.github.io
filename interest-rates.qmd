@@ -1,8 +1,7 @@
 ---
 title: "Interest rates"
+subtitle: "Charts on long-term U.S. interest rates."
 ---
-
-Charts on long-term U.S. interest rates.
 
 ## The 10-year yield
 

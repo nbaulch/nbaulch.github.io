@@ -1,8 +1,7 @@
 ---
 title: "Trade"
+subtitle: "Charts on U.S. trade and tariffs."
 ---
-
-Charts on U.S. trade and tariffs.
 
 ## Tariff rates
 

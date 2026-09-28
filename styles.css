@@ -27,162 +27,378 @@
   font-style: italic;
 }
 
-body, .navbar {
-  font-family: "Roboto Chart", sans-serif;
-  color: #4a4a47;
-  background: #f6f3ec;
+
+/* Design tokens. Colors match STYLE.md; the accent is a darker shade of the
+   chart blue, so links read against the paper background. */
+:root {
+  --paper: #f6f3ec;
+  --rule: #e3ded2;
+  --ink: #222220;
+  --text: #333331;
+  --muted: #75746f;
+  --accent: #1a5a92;
+  --sans: "Roboto Chart", system-ui, sans-serif;
+  --serif: "Source Serif 4", Georgia, serif;
+
+  /* One spacing scale for the whole site. */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+
+  /* The column every page, the navbar, and the footer share. */
+  --column: 720px;
+  --gutter: 1.25rem;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--paper);
   line-height: 1.6;
 }
 
-h1, h3 {
-  color: #222220;
-}
-
-h2 {
-  color: #1d3557;
-}
-
-a {
-  color: #1d4e89;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
+/* Navbar and footer sit in the same column as the page, so the name lines up
+   with the text below it. */
 .navbar {
-  border-bottom: 1px solid #e3ded2;
+  background: var(--paper) !important;
+  border-bottom: 1px solid var(--rule);
+  padding: var(--space-1) 0;
+}
+
+.navbar > .container-fluid,
+.nav-footer {
+  max-width: calc(var(--column) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.navbar-brand,
+.navbar-title {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink) !important;
+  margin-left: 0;
+}
+
+.navbar .nav-link {
+  font-size: 0.95rem;
+  color: var(--text) !important;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: var(--accent) !important;
+}
+
+.dropdown-menu {
+  background: #fbf9f4;
+  border-color: var(--rule);
+  font-size: 0.95rem;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background: var(--rule);
+  color: var(--ink);
 }
 
 .nav-footer {
-  background: #f6f3ec;
-  border-top: 1px solid #e3ded2;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: var(--space-5);
+}
+
+.page-footer {
+  background: var(--paper);
+}
+
+footer.footer .nav-footer {
+  display: block;
+  padding: var(--space-2) var(--gutter);
+}
+
+.nav-footer-left {
+  padding: 0;
+  text-align: left;
+}
+
+.nav-footer-center,
+.nav-footer-right {
+  display: none;
+}
+
+/* Page body. */
+main {
+  padding-top: var(--space-4);
+}
+
+main p,
+main li {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+main p {
+  margin-bottom: var(--space-2);
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgb(26 90 146 / 40%);
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Headings are sans and dark grey; size and weight set the hierarchy. */
+h1, h2, h3, .title {
+  font-family: var(--sans);
+  color: var(--ink);
+  font-weight: 700;
+  border-bottom: none;
+}
+
+#title-block-header {
+  margin-bottom: var(--space-4);
+}
+
+#title-block-header .title {
+  font-size: 2.25rem;
+  line-height: 1.15;
+  margin-bottom: var(--space-1);
+}
+
+#title-block-header .subtitle {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 0 0 var(--space-2);
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: var(--space-3) 0 var(--space-1);
+}
+
+/* Each chart is one section: heading, paragraph, chart, source link. Sections
+   are set apart by space and a thin rule, so each reads as a unit. */
+section.level2 + section.level2 {
+  border-top: 1px solid var(--rule);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
 }
 
 /* Chart images have white backgrounds; multiplying them onto the page lets
    the paper color show through without changing the data colors noticeably. */
 .chart {
+  display: block;
   width: 100%;
   height: auto;
+  margin: var(--space-3) 0 var(--space-1);
   mix-blend-mode: multiply;
 }
 
+/* Sources, notes, and small print are sans, smaller, and lighter than the text. */
+.chart-source,
+.chart-source p {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: var(--space-1) 0 0;
+}
 
-/* Notes and sources are page text rather than part of the chart image, so they
-   stay readable at any screen size. Same darker grey as body text, slightly smaller. */
+.chart-source a {
+  color: var(--muted);
+  text-decoration-color: rgb(117 116 111 / 50%);
+}
+
+.chart-source a:hover {
+  color: var(--accent);
+}
+
+/* Definitions on the sources page: term beside definition, stacked on phones. */
 .chart-notes {
+  font-family: var(--sans);
+  margin-top: var(--space-1);
+}
+
+.chart-notes dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 12rem) 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin: 0 0 var(--space-2);
   font-size: 0.95rem;
   line-height: 1.5;
-  margin-top: 0.75rem;
 }
 
-.chart-notes p {
-  margin-bottom: 0.5rem;
-}
-
-.chart-notes strong {
-  color: #222220;
-}
-
-/* The source ranks below the definitions, so it is smaller and lighter. */
-.chart-source {
-  font-size: 0.85rem;
-  color: #75746f;
-  margin-top: 0.75rem;
-}
-
-/* Page text is set in a serif for reading; names, navigation, and headings stay
-   in the chart font. */
-main p, main li {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: 1.1rem;
-  line-height: 1.65;
-  color: #333331;
-}
-
-.chart-notes p, .chart-source, .chart-source p {
-  font-family: "Roboto Chart", sans-serif;
-}
-
-h2 {
-  border-bottom: none;
-  font-size: 1.3rem;
+.chart-notes dt {
   font-weight: 700;
-  margin-top: 2.5rem;
+  color: var(--ink);
 }
 
-h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-top: 1.5rem;
+.chart-notes dd {
+  margin: 0;
+  color: var(--text);
 }
 
-/* Home page: round photo beside the name, stacked on phones. */
-.hero {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 1.5rem 0 2rem;
-}
-
-.headshot {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px #e3ded2;
-}
-
-.hero .name {
-  font-family: "Roboto Chart", sans-serif;
-  font-size: 2.1rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #222220;
+.chart-notes dd p,
+.chart-notes dt p {
+  font-family: var(--sans);
+  font-size: inherit;
+  line-height: inherit;
   margin: 0;
 }
 
-.hero .tagline {
-  font-family: "Roboto Chart", sans-serif;
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
-  color: #8a6d3b;
-  margin: 0.2rem 0 0;
+.jump {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-4);
 }
 
-.links p {
-  font-family: "Roboto Chart", sans-serif;
+.jump p {
+  font-family: var(--sans);
+  font-size: inherit;
+}
+
+/* Home page. */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-4);
+}
+
+.headshot {
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px var(--rule);
+}
+
+main .hero p {
+  font-family: var(--sans);
+  margin: 0;
+}
+
+main .hero .name {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+main .hero .tagline {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+main .hero .contact {
+  font-size: 0.95rem;
+  margin-top: var(--space-1);
+}
+
+.contact a + a::before {
+  content: "·";
+  color: var(--muted);
+  margin: 0 0.5em;
+  display: inline-block;
+}
+
+h2.topics-heading {
+  margin: var(--space-4) 0 var(--space-1);
+}
+
+/* Topic list: a cropped view of each topic's first chart beside its name. */
+.topics {
+  display: grid;
+  gap: 0;
+  margin: 0 0 var(--space-3);
+}
+
+.topic {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: var(--space-3);
+  align-items: center;
+  padding: 0.75rem var(--space-2);
+  margin: 0 calc(-1 * var(--space-2));
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.topic:hover {
+  background: #efeadf;
+}
+
+.topic img {
+  width: 168px;
+  height: 100px;
+  object-fit: cover;
+  object-position: 50% 70%;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.topic-name {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.topic:hover .topic-name {
+  color: var(--accent);
+}
+
+.topic-description {
+  display: block;
+  font-family: var(--serif);
   font-size: 1rem;
-}
-
-@media (max-width: 600px) {
-  .headshot {
-    width: 96px;
-    height: 96px;
-  }
-  .hero .name {
-    font-size: 1.7rem;
-  }
-}
-
-.page-footer {
-  font-size: 0.85rem;
-  color: #75746f;
+  color: var(--muted);
+  margin-top: 0.15rem;
 }
 
 /* Data tables: compact rows in the chart font, with tabular figures so numbers
    line up. */
 .table {
-  font-family: "Roboto Chart", sans-serif;
-  font-size: 0.85rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
   width: auto;
   min-width: 60%;
-  margin: 0.5rem 0 1.25rem;
+  margin: var(--space-1) 0 var(--space-3);
+  background: transparent;
 }
 
 .table > :not(caption) > * > * {
-  padding: 0.05rem 0.5rem;
-  line-height: 1.35;
+  padding: 0.1rem 0.6rem;
+  line-height: 1.4;
+  background: transparent;
   border-bottom-color: #e6e5e1;
 }
 
@@ -192,11 +408,72 @@ h3 {
 }
 
 .table > thead > tr > th {
+  font-weight: 700;
+  color: var(--ink);
+  vertical-align: bottom;
   border-bottom-color: #3a3a38;
 }
 
-.table th {
-  font-weight: 700;
-  color: #4a4a47;
-  vertical-align: bottom;
+/* Phones: a narrower gutter and smaller type. */
+@media (max-width: 600px) {
+  :root {
+    --gutter: 1rem;
+  }
+
+  main {
+    padding-top: var(--space-3);
+  }
+
+  main p,
+  main li {
+    font-size: 1.05rem;
+  }
+
+  #title-block-header .title {
+    font-size: 1.85rem;
+  }
+
+  main .hero .name {
+    font-size: 1.6rem;
+  }
+
+  .headshot {
+    width: 88px;
+    height: 88px;
+  }
+
+  .topic {
+    grid-template-columns: 112px 1fr;
+    gap: var(--space-2);
+  }
+
+  .topic img {
+    width: 112px;
+    height: 72px;
+  }
+
+  .chart-notes dl {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Tables scroll inside themselves rather than widening the page. */
+  .table {
+    display: block;
+    overflow-x: auto;
+    min-width: 0;
+    font-size: 0.8rem;
+  }
+
+  .table > :not(caption) > * > * {
+    padding: 0.1rem 0.35rem;
+  }
+
+  .table > :not(caption) > * > *:first-child {
+    white-space: normal;
+  }
+
+  .chart-notes dd {
+    margin-bottom: var(--space-1);
+  }
 }
