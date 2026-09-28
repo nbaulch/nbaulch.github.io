@@ -1,11 +1,10 @@
 ---
 title: "Trade"
-subtitle: "Charts on U.S. trade and tariffs."
 ---
 
 ## Tariff rates
 
-Announced tariffs and the duties importers pay can differ, because of exemptions, claims under trade agreements, and shifts in what the United States buys and from where. A [Federal Reserve Board note](https://www.federalreserve.gov/econres/notes/feds-notes/mind-the-gap-announced-versus-implied-tariff-rates-in-recent-trade-policy-episodes-20260408.html) by Sydney Eck, Trang Hoang, Carter Mix, and Madeleine Ray measures that difference; the chart shows the rate collected on actual imports and, to set aside shifts in the mix, at the products and countries the United States imported in 2024. Both count duty when goods enter, before any refunds, such as those after the Supreme Court's February 2026 ruling on emergency tariffs.
+Announced tariffs and the duties importers pay differ because of exemptions, trade agreements, and shifts in what the United States buys and from where. The chart shows the rate collected on actual imports and, setting those shifts aside, at the 2024 mix of products and countries, following a [Federal Reserve Board note](https://www.federalreserve.gov/econres/notes/feds-notes/mind-the-gap-announced-versus-implied-tariff-rates-in-recent-trade-policy-episodes-20260408.html) by Eck, Hoang, Mix, and Ray. Both count duty when goods enter, before refunds such as those after the Supreme Court's February 2026 ruling.
 
 ```{=html}
 <picture>
@@ -15,12 +14,12 @@ Announced tariffs and the duties importers pay can differ, because of exemptions
 ```
 
 ::: {.chart-source}
-[Sources, definitions, and data](sources.qmd#effective-tariff-rate)
+[Sources and data](sources.qmd#effective-tariff-rate)
 :::
 
 ## Goods trade balance
 
-Debates over the U.S. trade deficit often turn on a few product groups whose trade can move for reasons of its own: computers and chips, pharmaceuticals, and gold. The chart splits the goods balance into those groups and all other goods, using the Census Bureau's product categories.
+Debates over the U.S. trade deficit often turn on a few product groups whose trade can move for reasons of its own: computers and chips, pharmaceuticals, and gold. The chart splits the goods balance into those groups and the rest, using the Census Bureau's product categories.
 
 ```{=html}
 <picture>
@@ -30,5 +29,5 @@ Debates over the U.S. trade deficit often turn on a few product groups whose tra
 ```
 
 ::: {.chart-source}
-[Sources, definitions, and data](sources.qmd#goods-balance)
+[Sources and data](sources.qmd#goods-balance)
 :::
