@@ -409,6 +409,32 @@ h2.topics-heading {
   background: transparent;
 }
 
+/* A table's title and subtitle match a chart's, so tables and charts read
+   alike. */
+.table-heading p {
+  font-family: var(--sans);
+  margin: 0;
+}
+
+main .table-heading p:first-child {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+main .table-heading p + p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text);
+  margin-top: 0.2rem;
+}
+
+.table-heading + .table,
+.table-heading + table {
+  margin-top: var(--space-2);
+}
+
 /* Page facts, such as a release date, set apart from the text. */
 .meta,
 .meta p {
