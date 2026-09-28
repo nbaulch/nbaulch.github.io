@@ -45,4 +45,8 @@ Most of my work is built in R, and lately I've been using AI tools to do more of
 </div>
 ```
 
-On release days, the [trade release page](trade-release.qmd) shows the latest monthly report on U.S. trade.
+## Data releases
+
+Views of the latest release of a data report, updated on release day.
+
+- [Trade](trade-release.qmd): the monthly report on U.S. international trade in goods and services
