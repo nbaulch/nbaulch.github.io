@@ -97,7 +97,7 @@ The site is https://nbaulch.github.io/, built from the `nbaulch/nbaulch.github.i
 
 - `main` is protected. Every change goes through a pull request that I review and merge.
 - Any push to `main` runs `.github/workflows/publish.yml`, which renders the pages and publishes them. It does not run R.
-- Two workflows run R. `census-trade-data.yml` maintains the Census trade store; it changes only release assets. `refresh-charts.yml` runs after it each day: it reruns every chart's `build.R` and commits the charts whose plotted CSV changed, so new data and revisions publish the same day. A failed build leaves that chart as it was and marks the run failed, which GitHub emails me about. It pushes to `main` with a deploy key that the `main` ruleset lets bypass its pull request rule, and needs the repository secrets `DEPLOY_KEY`, `CENSUS_API_KEY`, and `SEC_USER_AGENT`.
+- Two workflows run R. `census-trade-data.yml` maintains the Census trade store; it changes only release assets. `refresh-charts.yml` runs after it each day: it reruns every chart's `build.R` and commits the charts whose plotted CSV changed, so new data and revisions publish the same day. A failed build leaves that chart as it was and marks the run failed, which GitHub emails me about. It pushes to `main` with a deploy key that the `main` ruleset lets bypass its pull request rule, and needs the repository secrets `DEPLOY_KEY` and `CENSUS_API_KEY`.
 - A Claude Routine, separate from the workflows, reads each day's refresh commit on `main` and emails me a private interpretation of what changed. It never writes to the repo or GitHub. Its prompt lives in the Routine, not here.
 - A new chart's `build.R` must run unattended from a fresh checkout, since the refresh workflow runs it daily.
 

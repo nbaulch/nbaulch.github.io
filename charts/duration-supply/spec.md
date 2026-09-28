@@ -20,7 +20,7 @@ How much long-term debt, measured in 10-year equivalents, do Treasury and the la
 | Big tech bonds: currency, amount, coupon, and maturity of each tranche | SEC EDGAR, covers of final 424B2 and 424B5 prospectus supplements, plus two exchange offers (424B3) | `fetch_sec_filings()`, `fetch_sec_prospectus_tranches()` |
 | Nominal and real Treasury yield curves | Fed Board H.15, from FRED | `tidyusmacro::getFRED()`: DGS1MO to DGS30, DFII5 to DFII30 |
 
-- EDGAR requires a user agent with a contact email, read from the `SEC_USER_AGENT` environment variable and never committed.
+- EDGAR requires a user agent with a name and contact email, set as `sec_user_agent` in `R/fetch_sec.R`.
 - Downloads that don't change are cached in `cache/` (not committed): weekly Fed holdings and SEC filings.
 - Companies: Alphabet (CIK 1652044) and Google Inc. before it (1288776), Amazon (1018724), Meta (1326801), Microsoft (789019), Oracle (1341439). Filings from each company's first bond, 2007 for Oracle and 2009 for Microsoft. Microsoft has registered no bonds since 2017.
 
