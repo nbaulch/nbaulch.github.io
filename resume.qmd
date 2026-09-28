@@ -3,8 +3,6 @@ title: "Resume"
 format:
   html:
     format-links: false
-    grid:
-      body-width: 680px
   typst:
     title: "Nicholas Baulch"
     output-file: nicholas-baulch-resume.pdf

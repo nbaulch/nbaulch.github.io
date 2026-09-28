@@ -1,8 +1,7 @@
 ---
 title: "Inflation"
+subtitle: "Charts on U.S. consumer price inflation."
 ---
-
-Charts on U.S. consumer price inflation.
 
 ## Underlying inflation
 

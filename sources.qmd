@@ -1,8 +1,11 @@
 ---
 title: "Sources and data"
+subtitle: "Sources, release dates, and definitions for each chart, with its data to download."
 ---
 
-Sources, release dates, and definitions for each chart, with its data to download.
+::: {.jump}
+[The AI economy](#the-ai-economy) · [Interest rates](#interest-rates) · [Inflation](#inflation) · [Trade](#trade)
+:::
 
 ## The AI economy
 

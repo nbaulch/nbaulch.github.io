@@ -98,7 +98,7 @@ write_chart_notes <- function(notes, source, csv_path, path) {
     c(
       "::: {.chart-notes}",
       "",
-      stringr::str_c(notes, collapse = "\n\n"),
+      stringr::str_c(stringr::str_replace(notes, "^\\*\\*(.+?):\\*\\* ", "\\1\n:   "), collapse = "\n\n"),
       "",
       "::: {.chart-source}",
       stringr::str_glue("{source} [Download the data (CSV)]({csv_path})"),
