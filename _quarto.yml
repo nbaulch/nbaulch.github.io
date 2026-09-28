@@ -23,6 +23,7 @@ website:
   site-url: https://nbaulch.github.io/
   description: "Economist. Macroeconomic scenarios, stress testing, and U.S. economic data."
   image: images/preview.jpg
+  favicon: images/favicon.svg
   open-graph: true
   twitter-card:
     card-style: summary_large_image

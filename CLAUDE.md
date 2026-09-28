@@ -142,7 +142,7 @@ Charts follow `STYLE.md`. The title names what the chart shows, never a finding.
 
 The standard is a site Edward Tufte would recognize: quiet, printed-report restraint, where the charts are the only thing that draws the eye. It should feel like a well-set page, not a web app. Decoration is a failure, not polish.
 
-- **Content first; the design disappears.** No cards, boxes, shadows, icons, badges, banners, animations, or hero images. The photo on the home page is the one picture that isn't data.
+- **Content first; the design disappears.** No cards, boxes, shadows, icons, badges, banners, animations, or hero images. The photo on the home page and the favicon, a small bar chart in the chart colors, are the only images that aren't data.
 - **Hierarchy comes from size, weight, and space, never from color or ornament.** One thing is the heading on any part of the page, and nothing competes with it. On a chart section that is the chart's own title.
 - **Space shows what belongs together.** Things that go together sit close; separate things sit clearly apart. Space within a unit is always smaller than space between units. One spacing scale, used everywhere; no one-off margins.
 - **One column, one left edge.** The navbar, text, charts, tables, and footer share a 720px column and align to the same left edge. Nothing is centered except by accident of width.
