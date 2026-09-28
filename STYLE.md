@@ -8,7 +8,7 @@ The house style follows Datawrapper's published guidance, adapted for static cha
 - Design decides what readers see first, second, and last. Use size, weight, and contrast for that, not decoration.
 - Grey is the most used color. It carries text, axes, gridlines, and context data, so the data that matters can use color.
 - Readers shouldn't have to decode anything that plain words could say.
-- **Every chart and table stands on its own**: a title saying what is shown, a subtitle with units, basis, and adjustment, a source line, and a data download. Nothing else is needed to read it.
+- **Every chart stands on its own**: a title saying what is shown, a subtitle with units, basis, and adjustment, a source line, and a data download. Nothing else is needed to read it.
 
 The writing and design principles for the whole site, which these rules apply, are in `CLAUDE.md` under Writing, Design, and Reviewing published work. This guide holds the mechanics.
 
@@ -65,17 +65,9 @@ Rules:
 - Greys for non-data elements: title `#222220`, text `#4a4a47`, source line and axis labels `#75746f`, zero line `#3a3a38`, gridlines `#e6e5e1`.
 - Sequential and diverging scales are not defined yet. Add them when the first chart needs one.
 
-## Tables
-
-Tables follow the same rules as charts. Above the table, a title and subtitle styled like a chart's (a `.table-heading` div: title, then subtitle); below it, a source line and the data download (a `.chart-source` div). Rows are compact, figures are tabular, and column headers carry the periods and units a reader needs. No paragraph explains a table.
-
-## Release pages
-
-A release page shows one data release. Under the title, one line gives the data month, the release date, and the next release date. Each section is a small label, then a chart or table with its title, subtitle, source line, and data download. No paragraphs.
-
 ## Data download
 
-Every chart and table has a CSV of what it shows, linked under it on the site as "Download the data (CSV)", or, on topic pages, from the chart's entry on the sources page. One row per period, one column per series, plain snake_case column names, and the full history rather than only the plotted window. Values keep three decimals.
+Every chart has a CSV of what it shows, downloaded from the chart's entry on the sources page. One row per period, one column per series, plain snake_case column names, and the full history rather than only the plotted window. Values keep three decimals.
 
 ## Typography
 
