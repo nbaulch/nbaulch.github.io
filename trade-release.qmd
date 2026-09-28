@@ -2,7 +2,9 @@
 title: "Trade release"
 ---
 
+::: {.meta}
 {{< include charts/trade-release/output/release.md >}}
+:::
 
 A view of the latest monthly report on U.S. international trade in goods and services from the Census Bureau and the Bureau of Economic Analysis. Seasonal adjustment of trade data has been harder since 2020, so where the data allow, the page shows figures both seasonally adjusted and not: the first compare with the previous month, the second with the same month a year earlier.
 
