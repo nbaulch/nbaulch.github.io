@@ -11,6 +11,7 @@ project:
     - trade.qmd
     - trade-release.qmd
     - sources.qmd
+    - 404.qmd
   resources:
     - fonts/*.ttf
     - fonts/*.woff2
