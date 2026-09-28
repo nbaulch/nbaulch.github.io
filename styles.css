@@ -397,6 +397,13 @@ h2.topics-heading {
   margin-top: 0.15rem;
 }
 
+/* The page-not-found robin: the favicon, drawn larger. */
+.robin {
+  width: 96px;
+  height: 96px;
+  margin: 0 0 var(--space-2);
+}
+
 /* Data tables: compact rows in the chart font, with tabular figures so numbers
    line up. */
 .table {
