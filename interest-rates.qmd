@@ -1,11 +1,10 @@
 ---
 title: "Interest rates"
-subtitle: "Charts on long-term U.S. interest rates."
 ---
 
 ## The 10-year yield
 
-The 10-year Treasury yield sets the cost of long-term borrowing across the economy. The Fed Board's model splits it into the short-term rates and inflation investors expect over 10 years, and the extra return they require for the risk of holding a long-term bond instead. Which parts move bears on debates over how fiscal policy, Treasury supply, and borrowing for AI affect long-term rates.
+The 10-year Treasury yield sets the cost of long-term borrowing. The Fed Board's model splits it into expected short-term rates, expected inflation, and the extra return investors require to hold a long-term bond. The split bears on debates over how fiscal policy, Treasury supply, and borrowing for AI affect long-term rates.
 
 ```{=html}
 <picture>
@@ -15,12 +14,12 @@ The 10-year Treasury yield sets the cost of long-term borrowing across the econo
 ```
 
 ::: {.chart-source}
-[Sources, definitions, and data](sources.qmd#yield-decomposition)
+[Sources and data](sources.qmd#yield-decomposition)
 :::
 
 ## Two models
 
-Models of the term premium can split the same change in yields differently. The Fed Board and New York Fed models are the two most widely cited, so the chart shows the split from each, side by side, since February 2026.
+Models of the term premium can split the same change in yields differently. The chart shows the two most widely cited, from the Fed Board and the New York Fed, side by side.
 
 ```{=html}
 <picture>
@@ -30,12 +29,12 @@ Models of the term premium can split the same change in yields differently. The 
 ```
 
 ::: {.chart-source}
-[Sources, definitions, and data](sources.qmd#yield-rise-by-model)
+[Sources and data](sources.qmd#yield-rise-by-model)
 :::
 
 ## Supply of long-term debt
 
-Investors have to absorb new long-term debt whoever issues it, and more of it can raise the term premium. Large technology companies now issue bonds to fund AI investment alongside Treasury's borrowing. Measuring both in 10-year equivalents, the amount of 10-year notes with the same sensitivity to interest rates, puts them on a common footing, following work by the [Dallas Fed](https://www.dallasfed.org/research/economics/2026/0210-searls-aifinancing) and Exante Data.
+Investors have to absorb new long-term debt whoever issues it, and more of it can raise the term premium. Large technology companies now borrow for AI alongside the Treasury. Measuring both in 10-year equivalents puts them on a common footing, following work by the [Dallas Fed](https://www.dallasfed.org/research/economics/2026/0210-searls-aifinancing) and Exante Data.
 
 ```{=html}
 <picture>
@@ -45,5 +44,5 @@ Investors have to absorb new long-term debt whoever issues it, and more of it ca
 ```
 
 ::: {.chart-source}
-[Sources, definitions, and data](sources.qmd#duration-supply)
+[Sources and data](sources.qmd#duration-supply)
 :::

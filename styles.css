@@ -170,7 +170,7 @@ h1, h2, h3, .title {
 }
 
 #title-block-header {
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 #title-block-header .title {
@@ -187,10 +187,15 @@ h1, h2, h3, .title {
   margin: 0;
 }
 
+/* Section headings are small labels, so the chart's own title, drawn in the
+   image, is the heading readers see. */
 h2 {
-  font-size: 1.35rem;
+  font-size: 0.8rem;
   line-height: 1.3;
-  margin: 0 0 var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 var(--space-1);
 }
 
 h3 {
@@ -202,17 +207,19 @@ h3 {
    are set apart by space and a thin rule, so each reads as a unit. */
 section.level2 + section.level2 {
   border-top: 1px solid var(--rule);
-  margin-top: var(--space-4);
-  padding-top: var(--space-4);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
 }
 
 /* Chart images have white backgrounds; multiplying them onto the page lets
    the paper color show through without changing the data colors noticeably. */
+/* The image carries its own white space above the title and below the source
+   line, so the page adds almost none. */
 .chart {
   display: block;
   width: 100%;
   height: auto;
-  margin: var(--space-3) 0 var(--space-1);
+  margin: 0;
   mix-blend-mode: multiply;
 }
 
@@ -220,10 +227,17 @@ section.level2 + section.level2 {
 .chart-source,
 .chart-source p {
   font-family: var(--sans);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   line-height: 1.5;
   color: var(--muted);
-  margin: var(--space-1) 0 0;
+  margin: 0;
+}
+
+/* Under a chart, the link reads as the chart's last line, just below the
+   source line drawn in the image. */
+picture + .chart-source,
+.chart + .chart-source {
+  margin-top: -0.6rem;
 }
 
 .chart-source a {
@@ -393,6 +407,14 @@ h2.topics-heading {
   min-width: 60%;
   margin: var(--space-1) 0 var(--space-3);
   background: transparent;
+}
+
+/* Page facts, such as a release date, set apart from the text. */
+.meta,
+.meta p {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 .table > :not(caption) > * > * {

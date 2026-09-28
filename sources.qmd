@@ -1,6 +1,6 @@
 ---
 title: "Sources and data"
-subtitle: "Sources, release dates, and definitions for each chart, with its data to download."
+subtitle: "Definitions, sources, and data for each chart."
 ---
 
 ::: {.jump}

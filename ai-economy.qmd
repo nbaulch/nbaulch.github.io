@@ -1,11 +1,10 @@
 ---
 title: "The AI economy"
-subtitle: "Charts on how AI shows up in U.S. economic data."
 ---
 
 ## Investment
 
-Investment in software, computers, data centers, and power is where spending on AI appears in GDP, and its contribution to GDP growth is widely cited. Many of the computers are imported, and imports subtract from GDP, so the chart shows net trade in computers alongside the investment. The method follows a [July 2026 Federal Reserve note](https://www.federalreserve.gov/econres/notes/feds-notes/the-ai-buildout-and-the-economy-publicly-available-data-to-assess-ais-impact-20260717.html) by Soto, Thieu, and Allen.
+Spending on AI shows up in GDP as investment in software, computers, data centers, and power. Many of the computers are imported, and imports subtract from GDP, so the chart also shows net trade in computers. The method follows a [July 2026 Federal Reserve note](https://www.federalreserve.gov/econres/notes/feds-notes/the-ai-buildout-and-the-economy-publicly-available-data-to-assess-ais-impact-20260717.html) by Soto, Thieu, and Allen.
 
 ```{=html}
 <picture>
@@ -15,12 +14,12 @@ Investment in software, computers, data centers, and power is where spending on 
 ```
 
 ::: {.chart-source}
-[Sources, definitions, and data](sources.qmd#ai-investment-gdp)
+[Sources and data](sources.qmd#ai-investment-gdp)
 :::
 
 ## Adoption
 
-How widely businesses use AI, and whether use spreads from large firms to small ones, bears on how much AI will change the economy. The Census Bureau asks businesses every two weeks whether they used AI and publishes the answers by firm size. The chart builds on an [April 2026 Federal Reserve note](https://www.federalreserve.gov/econres/notes/feds-notes/monitoring-ai-adoption-in-the-u-s-economy-20260403.html) by Allen.
+Whether AI use spreads from large firms to small ones bears on how much AI will change the economy. The Census Bureau asks businesses every two weeks whether they use AI and reports the answers by firm size. The chart builds on an [April 2026 Federal Reserve note](https://www.federalreserve.gov/econres/notes/feds-notes/monitoring-ai-adoption-in-the-u-s-economy-20260403.html) by Allen.
 
 ```{=html}
 <picture>
@@ -30,12 +29,12 @@ How widely businesses use AI, and whether use spreads from large firms to small 
 ```
 
 ::: {.chart-source}
-[Sources, definitions, and data](sources.qmd#ai-adoption)
+[Sources and data](sources.qmd#ai-adoption)
 :::
 
 ## Productivity
 
-If AI makes businesses more efficient, it should show up in total factor productivity: output growth not explained by more capital, more skilled workers, or businesses working their existing staff and equipment harder. Splitting labor productivity growth into those parts separates efficiency gains from the rest. The chart adapts [Ernie Tedeschi's July 2026 analysis](https://www.stripeeconomics.com/p/ai-and-productivity) for Stripe.
+If AI makes businesses more efficient, it should show up in total factor productivity: output growth not explained by more capital, more skilled workers, or working existing staff and equipment harder. The chart adapts [Ernie Tedeschi's July 2026 analysis](https://www.stripeeconomics.com/p/ai-and-productivity) for Stripe.
 
 ```{=html}
 <picture>
@@ -45,5 +44,5 @@ If AI makes businesses more efficient, it should show up in total factor product
 ```
 
 ::: {.chart-source}
-[Sources, definitions, and data](sources.qmd#productivity-decomposition)
+[Sources and data](sources.qmd#productivity-decomposition)
 :::
