@@ -6,13 +6,19 @@ title: "Trade release"
 {{< include charts/trade-release/output/release.md >}}
 :::
 
-The latest monthly report on U.S. trade in goods and services, from the Census Bureau and the Bureau of Economic Analysis.
-
 ## Headline
 
-Seasonally adjusted, balance of payments basis, billions of dollars. The revision is from the previous month's first published figure.
+::: {.table-heading}
+U.S. trade in goods and services
+
+Seasonally adjusted, balance of payments basis, billions of dollars a month
+:::
 
 {{< include charts/trade-release/output/headline.md >}}
+
+::: {.chart-source}
+Source: Census Bureau and Bureau of Economic Analysis. [Download the data (CSV)](charts/trade-release/output/headline.csv)
+:::
 
 ```{=html}
 <picture>
@@ -21,11 +27,23 @@ Seasonally adjusted, balance of payments basis, billions of dollars. The revisio
 </picture>
 ```
 
+::: {.chart-source}
+[Download the data (CSV)](charts/trade-release/output/goods-balance.csv)
+:::
+
 ## Goods in chained dollars
 
-Chained 2017 dollars, seasonally adjusted, Census basis, billions of dollars a month. The quarter so far against the previous quarter, the comparison that feeds quarterly GDP.
+::: {.table-heading}
+U.S. goods trade in chained dollars
+
+Average over the quarter, seasonally adjusted, Census basis, billions of chained 2017 dollars a month
+:::
 
 {{< include charts/trade-release/output/real-goods.md >}}
+
+::: {.chart-source}
+Source: Census Bureau and Bureau of Economic Analysis. [Download the data (CSV)](charts/trade-release/output/real-goods.csv)
+:::
 
 ## By category
 
@@ -36,6 +54,10 @@ Chained 2017 dollars, seasonally adjusted, Census basis, billions of dollars a m
 </picture>
 ```
 
+::: {.chart-source}
+[Download the data (CSV)](charts/trade-release/output/end-use-changes.csv)
+:::
+
 ## By product
 
 ```{=html}
@@ -45,9 +67,11 @@ Chained 2017 dollars, seasonally adjusted, Census basis, billions of dollars a m
 </picture>
 ```
 
-## Computers, chips, and telecom equipment by country
+::: {.chart-source}
+[Download the data (CSV)](charts/trade-release/output/product-changes.csv)
+:::
 
-These imports bear on estimates of AI investment and its effect on GDP. The chart shows the eight largest sources; the product groups match the [goods balance chart](trade.qmd#goods-trade-balance).
+## Computers, chips, and telecom equipment by country
 
 ```{=html}
 <picture>
@@ -56,15 +80,25 @@ These imports bear on estimates of AI investment and its effect on GDP. The char
 </picture>
 ```
 
+::: {.chart-source}
+[Download the data (CSV)](charts/trade-release/output/hardware-by-country.csv)
+:::
+
 ## By country
 
-Goods balance with the twelve largest partners either way, Census basis, billions of dollars. Seasonally adjusted except the change from a year earlier.
+::: {.table-heading}
+U.S. goods trade balance by country
+
+Twelve largest balances, seasonally adjusted, Census basis, billions of dollars
+:::
 
 {{< include charts/trade-release/output/partners.md >}}
 
-## Tariffs
+::: {.chart-source}
+Source: Census Bureau. [Download the data (CSV)](charts/trade-release/output/partners.csv)
+:::
 
-The tariff rate is duties as a percent of the value of imports for consumption.
+## Tariffs
 
 ```{=html}
 <picture>
@@ -73,8 +107,19 @@ The tariff rate is duties as a percent of the value of imports for consumption.
 </picture>
 ```
 
+::: {.chart-source}
+[Download the data (CSV)](charts/trade-release/output/duties.csv)
+:::
+
+::: {.table-heading}
+Duties on U.S. imports by country
+
+Ten countries paying the most, billions of dollars; tariff rate is duties as a percent of imports for consumption
+:::
+
 {{< include charts/trade-release/output/duties-by-country.md >}}
 
 ::: {.chart-source}
-Source: Census Bureau, U.S. International Trade in Goods and Services (FT-900), exhibits 1, 6, 10, and 19, and U.S. imports and exports of merchandise by end-use category, product, and country. Data: [goods balance](charts/trade-release/output/goods-balance.csv), [categories](charts/trade-release/output/end-use-changes.csv), [products](charts/trade-release/output/product-changes.csv), [computers and chips by country](charts/trade-release/output/hardware-by-country.csv), [countries](charts/trade-release/output/partners.csv), [duties](charts/trade-release/output/duties.csv).
+Source: Census Bureau. [Download the data (CSV)](charts/trade-release/output/duties-by-country.csv)
 :::
+

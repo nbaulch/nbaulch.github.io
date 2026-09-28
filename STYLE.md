@@ -1,4 +1,4 @@
-# Chart style guide
+# Style guide
 
 The house style follows Datawrapper's published guidance, adapted for static charts made with ggplot2. The code is in `R/chart_style.R`: `theme_chart()`, `chart_colors`, `chart_greys`, and `save_chart()`.
 
@@ -8,6 +8,9 @@ The house style follows Datawrapper's published guidance, adapted for static cha
 - Design decides what readers see first, second, and last. Use size, weight, and contrast for that, not decoration.
 - Grey is the most used color. It carries text, axes, gridlines, and context data, so the data that matters can use color.
 - Readers shouldn't have to decode anything that plain words could say.
+- **Every chart and table stands on its own**: a title saying what is shown, a subtitle with units, basis, and adjustment, a source line, and a data download. Nothing else is needed to read it.
+
+The writing and design principles for the whole site, which these rules apply, are in `CLAUDE.md` under Writing, Design, and Reviewing published work. This guide holds the mechanics.
 
 ## Text
 
@@ -30,11 +33,11 @@ The image has four levels of text, and nothing else competes with them. Everythi
 
 ## Text around the chart
 
-Write for a busy senior reader, like a staff economist briefing the Treasury secretary. Each chart's section on the topic page runs: heading, one paragraph, chart, and one small link to the chart's entry on the sources page. Text on the page stays readable at any screen size, unlike text drawn into the image.
+Write for a busy senior reader, like a staff economist briefing the Treasury secretary. Each chart's section on the topic page runs: a small section label, one paragraph, the chart, and one small link to the chart's entry on the sources page, set directly under the image's source line. Text on the page stays readable at any screen size, unlike text drawn into the image.
 
 - **One paragraph above the chart, one to three sentences, on why the chart is worth watching**: the question it bears on, who is debating it, and whose analysis it follows. It never says what the data show: no current values, no direction, no conclusion. Anything a reader must know to read the chart correctly goes here, not in the notes.
 - The paragraph is written directly in the topic page. It has no numbers from the data, so it doesn't change on refresh.
-- **Notes on the sources page are one-line definitions of the legend items**, in legend order, written as "**Label:** definition." No caveats, methods, or analysis; those go in the spec.
+- **Notes on the sources page are one-line definitions of the legend items**, in legend order, passed to `write_chart_notes()` as "**Label:** definition." and shown as the term beside its definition. No caveats, methods, or analysis; those go in the spec.
 - **The source line is short**: the providers, the data's end date, and a link to the original analysis. Smaller and lighter than the notes. It ends with the data download link.
 - `write_chart_notes()` writes the definitions and source to `output/<chart>-notes.md`. The topic page links to the chart's entry on `sources.qmd`, which includes the notes file under a heading whose id is the chart's folder name. Styles are `.chart-notes` and `.chart-source` in `styles.css`.
 
@@ -62,9 +65,17 @@ Rules:
 - Greys for non-data elements: title `#222220`, text `#4a4a47`, source line and axis labels `#75746f`, zero line `#3a3a38`, gridlines `#e6e5e1`.
 - Sequential and diverging scales are not defined yet. Add them when the first chart needs one.
 
+## Tables
+
+Tables follow the same rules as charts. Above the table, a title and subtitle styled like a chart's (a `.table-heading` div: title, then subtitle); below it, a source line and the data download (a `.chart-source` div). Rows are compact, figures are tabular, and column headers carry the periods and units a reader needs. No paragraph explains a table.
+
+## Release pages
+
+A release page shows one data release. Under the title, one line gives the data month, the release date, and the next release date. Each section is a small label, then a chart or table with its title, subtitle, source line, and data download. No paragraphs.
+
 ## Data download
 
-Every chart has a CSV of what it plots, linked under the chart on the site as "Download the data (CSV)". One row per period, one column per series, plain snake_case column names, and the full history rather than only the plotted window. Values keep three decimals.
+Every chart and table has a CSV of what it shows, linked under it on the site as "Download the data (CSV)", or, on topic pages, from the chart's entry on the sources page. One row per period, one column per series, plain snake_case column names, and the full history rather than only the plotted window. Values keep three decimals.
 
 ## Typography
 

@@ -47,6 +47,11 @@ Most of my work is built in R, and lately I've been using AI tools to do more of
 
 ## Data releases
 
-The latest release of each report, updated on release day.
-
-- [Trade](trade-release.qmd): the monthly report on U.S. international trade in goods and services
+```{=html}
+<div class="topics">
+  <a class="topic" href="trade-release.html">
+    <img src="charts/trade-release/output/goods-balance.png" alt="">
+    <span><span class="topic-name">Trade</span><span class="topic-description">The monthly report on U.S. international trade in goods and services</span></span>
+  </a>
+</div>
+```

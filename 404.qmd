@@ -1,0 +1,9 @@
+---
+title: "Page not found"
+---
+
+```{=html}
+<img src="images/favicon.svg" class="robin" alt="">
+```
+
+This page has flown off. [Go to the home page](index.qmd).
