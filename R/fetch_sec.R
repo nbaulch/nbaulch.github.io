@@ -1,8 +1,10 @@
-# The SEC asks every request to name the requester. SEC_USER_AGENT holds a
-# name and contact email, set in the environment and never committed.
+# The SEC asks every request to name the requester with a name and contact
+# email.
+sec_user_agent <- "Nicholas Baulch nicholas.baulch@gmail.com"
+
 sec_get <- function(url, path) {
   if (!file.exists(path)) {
-    response <- httr::RETRY("GET", url, httr::user_agent(Sys.getenv("SEC_USER_AGENT")))
+    response <- httr::RETRY("GET", url, httr::user_agent(sec_user_agent))
     httr::stop_for_status(response)
     writeBin(httr::content(response, as = "raw"), path)
     # The SEC allows at most 10 requests a second.

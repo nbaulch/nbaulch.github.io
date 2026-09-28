@@ -7,8 +7,8 @@
 #
 # Pushes to main with a deploy key, which the main ruleset lets bypass its
 # pull request rule, so the push also runs publish.yml. Needs repository
-# secrets DEPLOY_KEY (the private half of a deploy key with write access),
-# CENSUS_API_KEY, and SEC_USER_AGENT.
+# secrets DEPLOY_KEY (the private half of a deploy key with write access) and
+# CENSUS_API_KEY.
 name: Refresh charts
 
 on:
@@ -66,7 +66,6 @@ jobs:
           echo "failed=$failed" >> "$GITHUB_OUTPUT"
         env:
           CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
-          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
       - run: |
           changed=$(git status --porcelain -- charts | awk '{print $2}' | cut -d/ -f2 | sort -u | paste -sd, - | sed 's/,/, /g')
           if [ -n "$changed" ]; then
