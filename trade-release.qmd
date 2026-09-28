@@ -10,7 +10,11 @@ The latest monthly report on U.S. trade in goods and services, from the Census B
 
 ## Headline
 
-Seasonally adjusted, balance of payments basis, billions of dollars. The revision is from the previous month's first published figure.
+::: {.table-heading}
+U.S. trade in goods and services
+
+Seasonally adjusted, balance of payments basis, billions of dollars a month
+:::
 
 {{< include charts/trade-release/output/headline.md >}}
 
@@ -23,7 +27,11 @@ Seasonally adjusted, balance of payments basis, billions of dollars. The revisio
 
 ## Goods in chained dollars
 
-Chained 2017 dollars, seasonally adjusted, Census basis, billions of dollars a month. The quarter so far against the previous quarter, the comparison that feeds quarterly GDP.
+::: {.table-heading}
+U.S. goods trade in chained dollars
+
+Average over the quarter, seasonally adjusted, Census basis, billions of chained 2017 dollars a month
+:::
 
 {{< include charts/trade-release/output/real-goods.md >}}
 
@@ -47,8 +55,6 @@ Chained 2017 dollars, seasonally adjusted, Census basis, billions of dollars a m
 
 ## Computers, chips, and telecom equipment by country
 
-These imports bear on estimates of AI investment and its effect on GDP. The chart shows the eight largest sources; the product groups match the [goods balance chart](trade.qmd#goods-trade-balance).
-
 ```{=html}
 <picture>
   <source media="(max-width: 600px)" srcset="charts/trade-release/output/hardware-by-country-narrow.png">
@@ -58,13 +64,15 @@ These imports bear on estimates of AI investment and its effect on GDP. The char
 
 ## By country
 
-Goods balance with the twelve largest partners either way, Census basis, billions of dollars. Seasonally adjusted except the change from a year earlier.
+::: {.table-heading}
+U.S. goods trade balance by country
+
+Twelve largest balances, seasonally adjusted, Census basis, billions of dollars
+:::
 
 {{< include charts/trade-release/output/partners.md >}}
 
 ## Tariffs
-
-The tariff rate is duties as a percent of the value of imports for consumption.
 
 ```{=html}
 <picture>
@@ -72,6 +80,12 @@ The tariff rate is duties as a percent of the value of imports for consumption.
   <img src="charts/trade-release/output/duties.png" class="chart" alt="Bar chart of monthly calculated duties on U.S. imports over the past two years, with the latest month highlighted.">
 </picture>
 ```
+
+::: {.table-heading}
+Duties on U.S. imports by country
+
+Ten countries paying the most, billions of dollars; tariff rate is duties as a percent of imports for consumption
+:::
 
 {{< include charts/trade-release/output/duties-by-country.md >}}
 
