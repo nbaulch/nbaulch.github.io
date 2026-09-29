@@ -16,7 +16,7 @@ image: images/preview.jpg
 
 Hey, I'm Nicholas Baulch. I enjoy economics, data, programming, AI tools, and more. This is my personal site where I can explore ideas on my own time.
 
-I use AI tools to help collect data, but all analysis and writing is my own.
+I use AI tools to help collect data and make charts, but all analysis and writing is my own.
 
 ### A bit about me
 
