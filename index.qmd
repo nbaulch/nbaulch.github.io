@@ -14,13 +14,15 @@ image: images/preview.jpg
 </div>
 ```
 
-I'm an economist at U.S. Bank, where I lead scenario design, building the economic scenarios behind the bank's stress tests and loss reserves.
+Hey, I'm Nicholas Baulch. I enjoy economics, data, programming, AI tools, and more. This is my personal site where I can explore ideas on my own time.
 
-Before that, I spent four years at the U.S. Treasury. I was the lead economist on Ukraine after Russia's 2022 invasion and helped coordinate Treasury's backstop of the Federal Reserve's emergency lending facilities during COVID-19. I also served as senior advisor to the Acting Deputy Secretary after the 2020 transition.
+I use AI tools to help collect data, but all analysis and writing is my own.
 
-I live in the Charlotte area with my wife and our twins. I grew up in Ohio and have since lived in South Carolina, Wisconsin, D.C., and Minnesota. Outside work, I run, bike, lift, read fantasy, and play board games.
+### A bit about me
 
-Most of my work is built in R, and lately I've been using AI tools to do more of it. This site is one result: a small set of charts on the U.S. economy that I keep current. Many extend analyses by other economists that I thought were worth maintaining.
+I work as an economist at U.S. Bank, leading the scenario design team. Prior to that, I spent four years working as an international economist at the U.S. Department of Treasury, where I had the priveledge to work on a range of issues from covering Ukraine's economy following Russia's invasion to helping coordinate Treasury's support to Fed lending facilities during COVID.
+
+I live with my wife and two kids in the Charlotte area. When not playing with (or wrangling) my twin kids, I like to run, bike, read fantasy, and play board games.
 
 ## Charts I'm watching {.topics-heading}
 
