@@ -27,6 +27,9 @@ Trimmed mean
 Dashed line
 :   The Federal Reserve's 2 percent inflation goal.
 
+Shading
+:   Distance from the 2 percent goal, orange above and blue below.
+
 ::: {.chart-source}
 Sources: Bureau of Economic Analysis, through July 2026; Federal Reserve Bank of Cleveland, [median PCE](https://www.clevelandfed.org/indicators-and-data/median-pce-inflation); Federal Reserve Bank of Dallas, [trimmed mean PCE](https://www.dallasfed.org/research/pce), from FRED; Federal Reserve Bank of New York, [Multivariate Core Trend](https://www.newyorkfed.org/research/policy/mct). Excluding energy goods follows the Federal Reserve Bank of St. Louis, ["Between Headline and Core"](https://www.stlouisfed.org/on-the-economy/2026/jul/between-headline-core-inflation-excluding-energy-goods), July 2026; market-based core excluding housing follows Omair Sharif, Inflation Insights. [Download the data (CSV)](charts/inflation-measures/output/inflation-measures.csv)
 :::

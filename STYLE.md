@@ -63,7 +63,7 @@ Rules:
 - **Use as few colors as the point needs.** Put what matters in color and the rest in grey. More than six colors means a different chart or grouping into "other."
 - **Order the legend like the chart**: top to bottom for stacked bars. Label directly on the chart when it fits.
 - Greys for non-data elements: title `#222220`, text `#4a4a47`, source line and axis labels `#75746f`, zero line `#3a3a38`, gridlines `#e6e5e1`.
-- Sequential and diverging scales are not defined yet. Add them when the first chart needs one.
+- **Diverging scale**, `scale_fill_chart_diverging()`, for values around a reference such as an inflation goal: light blue below, near white at the reference, chart orange above, at full color 3 points away. Used for table cells, with the value printed in each. Sequential scales are not defined yet.
 
 ## Data download
 
@@ -78,6 +78,7 @@ Roboto, Datawrapper's default. It has lining, tabular figures, so numbers align.
 - Horizontal gridlines only, in light grey. No axis lines or tick marks.
 - A darker zero line when values go negative.
 - Legend at the top left, above the plot.
+- A chart with more than one panel stacks them, one above the other, at every width.
 - Title, subtitle, legend, and source line align with the left edge of the image, not the plot panel. The image has no side margin, and the page shows it at the width of the text column, so the chart's title lines up with the text above and below it. At about 800 pixels, an 8-inch image keeps its text at the size it was drawn.
 - The site background is a warm paper color, `#f6f3ec`. Charts are drawn on white and shown with `mix-blend-mode: multiply`, so the paper shows through on the page while the downloaded images stay white.
 - White background. Saved as PNG with `ragg` at 200 dpi.

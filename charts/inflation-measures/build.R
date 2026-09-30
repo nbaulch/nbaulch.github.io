@@ -27,7 +27,11 @@ pce_series <- c(
 
 pce <- fetch_bea_nipa(pce_series, frequency = "M")
 median_pce <- fetch_clevelandfed_median_pce()
-trimmed_mean <- tidyusmacro::getFRED(twelve_month = "PCETRIM12M159SFRBDAL", six_month = "PCETRIM6M680SFRBDAL")
+trimmed_mean <- tidyusmacro::getFRED(
+  twelve_month = "PCETRIM12M159SFRBDAL",
+  six_month = "PCETRIM6M680SFRBDAL",
+  one_month = "PCETRIM1M158SFRBDAL"
+)
 trend <- fetch_nyfed_mct()
 
 # None of the sources dates its release in the download, so snapshots are named
@@ -36,8 +40,12 @@ latest_month <- max(pce$date)
 list(bea_pce = pce, clevelandfed_median_pce = median_pce, dallasfed_trimmed_mean = trimmed_mean, nyfed_mct = trend) |>
   iwalk(\(data, name) write_csv(data, file.path(chart_dir, "data", str_glue("{name}_{latest_month}.csv"))))
 
-twelve_month_change <- \(index) 100 * (index / lag(index, 12) - 1)
-six_month_change <- \(index) 100 * ((index / lag(index, 6))^2 - 1)
+annualized_change <- \(index, months) 100 * ((index / lag(index, months))^(12 / months) - 1)
+# The median and trimmed mean come as monthly changes, so longer rates compound
+# the latest `months` of them.
+compounded_change <- \(monthly, months) {
+  100 * (exp(12 / months * slide_dbl(log1p(monthly / 100), sum, .before = months - 1, .complete = TRUE)) - 1)
+}
 
 measures_from_indexes <- pce |>
   arrange(date) |>
@@ -50,7 +58,13 @@ measures_from_indexes <- pce |>
     market_core_excluding_housing = index_excluding(market_core, market_core_spending, market_housing, market_housing_spending)
   ) |>
   pivot_longer(-date, names_to = "measure", values_to = "index") |>
-  mutate(twelve_month = twelve_month_change(index), six_month = six_month_change(index), .by = measure) |>
+  mutate(
+    twelve_month = annualized_change(index, 12),
+    six_month = annualized_change(index, 6),
+    three_month = annualized_change(index, 3),
+    one_month = annualized_change(index, 1),
+    .by = measure
+  ) |>
   select(-index)
 
 inflation <- bind_rows(
@@ -61,17 +75,25 @@ inflation <- bind_rows(
       date,
       measure = "median",
       twelve_month,
-      six_month = 100 * (exp(2 * slide_dbl(log1p(monthly / 100), sum, .before = 5, .complete = TRUE)) - 1)
+      six_month = compounded_change(monthly, 6),
+      three_month = compounded_change(monthly, 3),
+      one_month = compounded_change(monthly, 1)
     ),
-  mutate(trimmed_mean, measure = "trimmed_mean"),
+  # The Dallas Fed publishes 1-, 6-, and 12-month rates but no 3-month rate.
+  trimmed_mean |>
+    arrange(date) |>
+    mutate(
+      measure = "trimmed_mean",
+      three_month = compounded_change(100 * ((1 + one_month / 100)^(1 / 12) - 1), 3)
+    ),
   # The New York Fed measure is already an estimate of trend, so it has no
-  # six-month version.
+  # shorter versions.
   transmute(trend, date, measure = "trend", twelve_month = trend)
 ) |>
   filter(!is.na(twelve_month))
 
 inflation |>
-  pivot_wider(names_from = measure, values_from = c(twelve_month, six_month), names_glue = "{measure}_{.value}") |>
+  pivot_wider(names_from = measure, values_from = c(twelve_month, six_month, three_month, one_month), names_glue = "{measure}_{.value}") |>
   select(date, where(\(x) any(!is.na(x)))) |>
   arrange(date) |>
   mutate(across(-date, \(x) round(x, 2))) |>
@@ -97,7 +119,8 @@ month_label <- format(latest_month, "%B %Y")
 write_chart_notes(
   notes = c(
     str_glue("**{measures$label}:** {measures$definition}"),
-    "**Dashed line:** The Federal Reserve's 2 percent inflation goal."
+    "**Dashed line:** The Federal Reserve's 2 percent inflation goal.",
+    "**Shading:** Distance from the 2 percent goal, orange above and blue below."
   ),
   source = str_glue(
     "Sources: Bureau of Economic Analysis, through {month_label}; Federal Reserve Bank of Cleveland, ",
@@ -142,29 +165,53 @@ history_panel <- ggplot() +
   theme_chart() +
   panel_title_style
 
-# Bottom panel: every measure's latest 12-month and six-month rates.
-latest_panel <- function(label_width) {
-  latest |>
-    pivot_longer(c(twelve_month, six_month), names_to = "window", values_to = "rate") |>
-    filter(!is.na(rate)) |>
-    mutate(label = factor(str_wrap(label, label_width), levels = str_wrap(arrange(latest, twelve_month)$label, label_width))) |>
-    ggplot(aes(rate, label)) +
-    geom_vline(xintercept = 2, colour = chart_greys[["muted"]], linetype = "dashed", linewidth = 0.4) +
-    geom_line(aes(group = label), colour = chart_greys[["grid"]], linewidth = 1.2) +
-    geom_point(aes(colour = window), size = 2.6) +
-    scale_colour_manual(
-      values = c(twelve_month = chart_colors[["grey"]], six_month = chart_greys[["title"]]),
-      labels = c(twelve_month = "Past 12 months", six_month = "Past 6 months, annualized"),
-      breaks = c("twelve_month", "six_month")
+# Bottom panel: every measure's latest rates over four horizons, shaded by
+# distance from 2 percent, in two blocks: headline and core, then the measures
+# in the top panel's gray range. The New York Fed trend has only a 12-month rate.
+horizons <- c(twelve_month = "12 months", six_month = "6 months", three_month = "3 months", one_month = "1 month")
+
+rate_table <- function(rates, label_width, header_width, text_size, title, show_headers) {
+  table <- rates |>
+    pivot_longer(all_of(names(horizons)), names_to = "horizon", values_to = "rate") |>
+    mutate(
+      horizon = factor(horizons[horizon], levels = horizons),
+      label = factor(str_wrap(label, label_width), levels = rev(str_wrap(unique(label), label_width)))
+    )
+  ggplot(table, aes(horizon, label, fill = rate)) +
+    geom_tile(colour = "white", linewidth = 1.5) +
+    geom_text(
+      aes(label = if_else(is.na(rate), "\u2013", sprintf("%.1f", rate))),
+      size = text_size, family = "Roboto Chart", colour = chart_greys[["title"]]
     ) +
-    scale_x_continuous(breaks = scales::breaks_width(1), expand = expansion(add = 0.3)) +
-    labs(title = str_glue("By measure, {month_label}")) +
+    scale_fill_chart_diverging(midpoint = 2) +
+    scale_x_discrete(
+      position = "top",
+      labels = if (show_headers) \(x) str_wrap(x, header_width) else NULL
+    ) +
+    scale_y_discrete(expand = expansion(0)) +
+    labs(title = title) +
     theme_chart() +
     theme(
       panel.grid.major.y = element_blank(),
-      panel.grid.major.x = element_line(colour = chart_greys[["grid"]], linewidth = 0.35)
+      axis.text.x = element_text(colour = chart_greys[["text"]], lineheight = 0.9),
+      axis.text.y = element_text(lineheight = 0.9)
     ) +
     panel_title_style
+}
+
+latest_panel <- function(label_width, header_width, text_size) {
+  headline_and_core <- filter(latest, measure %in% c("headline", "core"))
+  others <- latest |>
+    filter(!measure %in% c("headline", "core")) |>
+    mutate(label = factor(label, levels = measures$label)) |>
+    arrange(label) |>
+    mutate(label = as.character(label))
+  rate_table(
+    headline_and_core, label_width, header_width, text_size,
+    title = str_glue("Annualized change, {month_label}"), show_headers = TRUE
+  ) /
+    rate_table(others, label_width, header_width, text_size, title = "Other underlying measures", show_headers = FALSE) +
+    plot_layout(heights = c(2, nrow(others)))
 }
 
 title <- "Measures of underlying inflation"
@@ -186,25 +233,27 @@ stacked_legends <- list(
   theme(legend.box = "vertical", legend.spacing.y = unit(0, "pt"))
 )
 
-# Side by side on desktops, stacked on phones.
 save_chart(
   annotate_panels(
-    (history_panel + stacked_legends | latest_panel(26) + guides(colour = guide_legend(ncol = 1))) +
-      plot_layout(widths = c(1.15, 1)),
+    (
+      free(history_panel + guides(colour = guide_legend(order = 1), fill = guide_legend(order = 2))) /
+        free(latest_panel(label_width = 36, header_width = 12, text_size = 3.8))
+    ) +
+      plot_layout(heights = c(1, 1.1)),
     width = 8
   ),
   file.path(chart_dir, "output", "inflation-measures.png"),
   width = 8,
-  height = 6
+  height = 8.8
 )
 
 save_chart(
   annotate_panels(
-    (free(history_panel + stacked_legends) / free(latest_panel(22) + guides(colour = guide_legend(ncol = 1)))) +
+    (free(history_panel + stacked_legends) / free(latest_panel(label_width = 16, header_width = 6, text_size = 3))) +
       plot_layout(heights = c(1, 1.3)),
     width = 4.2
   ),
   file.path(chart_dir, "output", "inflation-measures-narrow.png"),
   width = 4.2,
-  height = 10
+  height = 10.2
 )

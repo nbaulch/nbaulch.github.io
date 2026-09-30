@@ -36,13 +36,13 @@ title: "Sources and data"
 
 ## Inflation
 
-### The 1970s {#inflation-1970s}
-
-{{< include charts/inflation-1970s/output/inflation-1970s-notes.md >}}
-
 ### Underlying inflation {#inflation-measures}
 
 {{< include charts/inflation-measures/output/inflation-measures-notes.md >}}
+
+### The 1970s {#inflation-1970s}
+
+{{< include charts/inflation-1970s/output/inflation-1970s-notes.md >}}
 
 ### Breadth {#inflation-breadth}
 
