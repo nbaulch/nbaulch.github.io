@@ -4,7 +4,7 @@ title: "Inflation"
 
 ## The 1970s
 
-A chart setting inflation today against the 1970s, shifted so the two surges line up, has been widely shared over the past year. James Smith of ING [has written about it](https://think.ing.com/opinions/think-ahead-inflations-second-wave-is-history-really-repeating-itself/).
+Is inflation today tracking inflation from the 1970s? Probably not, but this continues to be a fun chart that's been circling around for the past few years.
 
 ```{=html}
 <picture>

@@ -56,10 +56,7 @@ write_chart_notes(
   ),
   source = str_glue(
     "Source: Bureau of Labor Statistics, consumer price index for all urban consumers, seasonally adjusted, from ",
-    "FRED, through {month_label}. The {shift_months}-month shift follows the version of the chart that has been ",
-    "widely shared, as described by James Smith, [\"Inflation's second wave\"]",
-    "(https://think.ing.com/opinions/think-ahead-inflations-second-wave-is-history-really-repeating-itself/), ",
-    "ING THINK, May 2026."
+    "FRED, through {month_label}."
   ),
   csv_path = file.path(chart_dir, "output", "inflation-1970s.csv"),
   path = file.path(chart_dir, "output", "inflation-1970s-notes.md")

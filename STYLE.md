@@ -35,8 +35,8 @@ The image has four levels of text, and nothing else competes with them. Everythi
 
 Write for a busy senior reader, like a staff economist briefing the Treasury secretary. Each chart's section on the topic page runs: a small section label, one paragraph, the chart, and one small link to the chart's entry on the sources page, set directly under the image's source line. Text on the page stays readable at any screen size, unlike text drawn into the image.
 
-- **One paragraph above the chart, one to three sentences, on why the chart is worth watching**: the question it bears on, who is debating it, and whose analysis it follows. It never says what the data show: no current values, no direction, no conclusion. Anything a reader must know to read the chart correctly goes here, not in the notes.
-- The paragraph is written directly in the topic page. It has no numbers from the data, so it doesn't change on refresh.
+- **One paragraph above the chart, written by Nicholas.** Anything a reader must know to read the chart correctly goes here, not in the notes.
+- The paragraph is written directly in the topic page, so it doesn't change on refresh.
 - **Notes on the sources page are one-line definitions of the legend items**, in legend order, passed to `write_chart_notes()` as "**Label:** definition." and shown as the term beside its definition. No caveats, methods, or analysis; those go in the spec.
 - **The source line is short**: the providers, the data's end date, and a link to the original analysis. Smaller and lighter than the notes. It ends with the data download link.
 - `write_chart_notes()` writes the definitions and source to `output/<chart>-notes.md`. The topic page links to the chart's entry on `sources.qmd`, which includes the notes file under a heading whose id is the chart's folder name. Styles are `.chart-notes` and `.chart-source` in `styles.css`.

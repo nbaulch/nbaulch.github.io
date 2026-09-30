@@ -8,8 +8,12 @@ How does consumer price inflation since 2015 compare with inflation from the lat
 
 ## Related work
 
-- A chart overlaying U.S. inflation today on the 1970s has been widely shared on social media. No single original author is identified.
-- James Smith, "THINK Ahead: Inflation's second wave – is history really repeating itself?", ING THINK, May 22, 2026. https://think.ing.com/opinions/think-ahead-inflations-second-wave-is-history-really-repeating-itself/. Describes the circulating version as U.S. inflation lagged 571 months.
+No single original author is identified. Versions checked:
+
+- ING THINK, "Inflation's second wave: Are we really watching a 70s rerun?", August 30, 2023. https://think.ing.com/articles/inflations-second-wave-are-we-really-watching-a-70s-rerun/. Draws its own version, headline inflation lagged 571 months, and notes that many similar charts were already on social media. The shift here is theirs.
+- Torsten Slok, Apollo. Core CPI, 1966 to 1982 against 2014 onward, on separate scales. Shown by John Cochrane in May 2024 (https://www.grumpy-economist.com/p/inflation-analogy) and posted again by Slok on August 31, 2025 (https://www.apolloacademy.com/will-we-see-a-repeat-of-2021-and-the-1970s/).
+- Jim Reid, Deutsche Bank, Chart of the Day, March 9, 2026, which says Deutsche Bank used the chart a few years earlier.
+- James Smith, ING THINK, May 22, 2026. https://think.ing.com/opinions/think-ahead-inflations-second-wave-is-history-really-repeating-itself/. Repeats the 571-month version.
 
 ## Sources
 
@@ -40,4 +44,5 @@ The seasonally adjusted series gives the figures quoted in the pieces on this ch
 
 ## Decision log
 
-- 2026-09-30: Headline CPI, seasonally adjusted, which matches the figures quoted for the circulating chart. The shift follows the circulating version.
+- 2026-09-30: Headline CPI, seasonally adjusted, which matches the figures quoted for the circulating chart. The shift follows ING's 2023 version.
+- 2026-09-30: No credit line on the chart or sources page, at Nicholas's call, since the chart has no single original author.
