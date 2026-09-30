@@ -67,4 +67,5 @@ Sharif's latest value isn't matched. His tweet also mentions leaving out portfol
 - 2026-09-27: One figure in two panels: headline and core since 2019 with the range of the other measures, and every measure's latest 12-month and six-month rates. Side by side on desktops, stacked on phones, where side by side was too cramped (superseded 2026-09-30).
 - 2026-09-30: Panels stacked at every width.
 - 2026-09-30: The bottom panel's dot plot of 12- and 6-month rates replaced by a table of 12-, 6-, 3-, and 1-month rates shaded from 2 percent. Rows keep a fixed order so they don't move between refreshes. The measures in the gray range are grouped under their own heading, with the New York Fed trend's 12-month rate, so the table and the range cover the same measures.
+- 2026-09-30: The Cleveland, Dallas, and New York Feds publish after BEA. Until they do, their rows read "Not yet published" and the gray range ends at the last month with at least five of its measures.
 - 2026-09-27: Market-based core excluding housing follows Sharif; the history matches his chart but the latest value doesn't (2.99 against 3.23).

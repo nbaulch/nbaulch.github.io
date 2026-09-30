@@ -10,7 +10,7 @@ Dashed line
 :   The average gap from 2011 to 2019.
 
 ::: {.chart-source}
-Sources: Bureau of Economic Analysis, through July 2026; Bureau of Labor Statistics, from FRED. Follows Mike Konczal, ["Is the Actual Inflation Rate PCE and High or CPI and Low?"](https://newsletter.mikekonczal.com/p/is-the-actual-inflation-rate-pce), August 28, 2026. [Download the data (CSV)](charts/pce-cpi-gap/output/pce-cpi-gap.csv)
+Sources: Bureau of Economic Analysis, through August 2026; Bureau of Labor Statistics, from FRED. Follows Mike Konczal, ["Is the Actual Inflation Rate PCE and High or CPI and Low?"](https://newsletter.mikekonczal.com/p/is-the-actual-inflation-rate-pce), August 28, 2026. [Download the data (CSV)](charts/pce-cpi-gap/output/pce-cpi-gap.csv)
 :::
 
 :::

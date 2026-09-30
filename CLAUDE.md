@@ -52,6 +52,7 @@ These are the analyses I've been considering. Treat them as starting points. Ver
 - Start with one chart and get it right before building a framework around it.
 - Don't commit or push until we've discussed the change and I've said to. Make edits locally, show me the result, and wait. One commit when we agree beats several along the way.
 - When maintaining someone else's analysis, reproduce their published numbers for their original period before extending it. If you can't match them, stop and tell me what differs.
+- Reproduction checks are for building a chart. Once it's set up, refreshes and revisions don't need `reproduce.R` rerun, and a later mismatch from revised data isn't a problem to fix.
 - Measuring the right thing matters more than matching the original, but replication is what makes a chart defensible, so deviate only with confidence. A deviation needs a reason grounded in data, not preference, and a consistency check against an independent source that the new method passes. Report how much it moves the result, keep `reproduce.R` matching the original under their method, record the deviation in the spec's decision log, and say on the chart that the method is adapted.
 - Each chart should have a written spec: sources, series identifiers, transformations, vintage handling, and known breaks. The spec is what makes refreshes reliable and reviewable.
 - Refreshes are automatic (see Publishing). What a refresh changed, and what it might mean, goes to me privately by email from the Claude Routine, never into the repo.
