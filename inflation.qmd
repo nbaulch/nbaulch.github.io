@@ -2,6 +2,21 @@
 title: "Inflation"
 ---
 
+## The 1970s
+
+A chart setting inflation today against the 1970s, shifted so the two surges line up, has been widely shared over the past year. James Smith of ING [has written about it](https://think.ing.com/opinions/think-ahead-inflations-second-wave-is-history-really-repeating-itself/).
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/inflation-1970s/output/inflation-1970s-narrow.png">
+  <img src="charts/inflation-1970s/output/inflation-1970s.png" class="chart" alt="Line chart of the 12-month change in consumer prices since 2015, and the same measure from 1967 to 1983 shifted forward 571 months onto the same timeline, with today's years on the bottom axis and the 1970s years on the top axis.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources and data](sources.qmd#inflation-1970s)
+:::
+
 ## Underlying inflation
 
 Measures of underlying inflation set aside volatile price changes to gauge where inflation is heading. The Federal Reserve watches several, built in different ways, so the chart shows them together.
