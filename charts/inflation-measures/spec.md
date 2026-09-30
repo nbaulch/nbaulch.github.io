@@ -4,7 +4,7 @@ Status: built in R from BEA's monthly NIPA files (fetched September 27, 2026, th
 
 ## Question
 
-How do the main measures of underlying PCE inflation compare, over time and in the latest month?
+How do the main measures of underlying PCE inflation compare, over time and in the latest month at horizons from 1 to 12 months?
 
 ## Related work
 
@@ -22,7 +22,7 @@ How do the main measures of underlying PCE inflation compare, over time and in t
 | Excluding energy goods (built) | same | same | Removes DGOERG / DGOERC from DPCERG / DPCERC |
 | Market-based core excluding housing (built) | same | same | Removes DHSMRG / DHSMRC (market-based housing services) from DPCXRG / DPCXRC |
 | Median | Cleveland Fed | `fetch_clevelandfed_median_pce()` | `median-pce-full-history.csv`: monthly and 12-month change |
-| Trimmed mean | Dallas Fed, from FRED | `tidyusmacro::getFRED()` | PCETRIM12M159SFRBDAL (12 months), PCETRIM6M680SFRBDAL (6 months, annualized) |
+| Trimmed mean | Dallas Fed, from FRED | `tidyusmacro::getFRED()` | PCETRIM12M159SFRBDAL (12 months), PCETRIM6M680SFRBDAL (6 months, annualized), PCETRIM1M158SFRBDAL (1 month, annualized) |
 | Trend | New York Fed, Multivariate Core Trend | `fetch_nyfed_mct()` | `mct-chart-data.xlsx` (a CSV despite the name): central estimate and band |
 
 FRED's DPCMRG3M086SBEA is total market-based PCE, not market-based core; market-based core is DPCXRG.
@@ -30,8 +30,10 @@ FRED's DPCMRG3M086SBEA is total market-based PCE, not market-based core; market-
 ## Transformations
 
 - A component is removed from an aggregate by solving BEA's monthly Fisher formula for the remainder's price change, given both price indexes and both nominal spending series (the residual Fisher method the St. Louis Fed uses). Rebuilding BEA's published market-based core from market-based PCE and its food and energy component matches to within 0.02 point on the 12-month change over the whole history.
-- 12-month change = index over its value 12 months earlier. Six-month change, annualized = (index over its value six months earlier) squared, minus one.
-- The median's six-month rate compounds its six latest monthly changes. The trimmed mean's six-month rate is the Dallas Fed's own. The New York Fed trend is already a trend estimate and has no six-month version.
+- Change over n months, annualized = (index over its value n months earlier) to the power 12/n, minus one, for n = 12, 6, 3, and 1.
+- The median's 6-, 3-, and 1-month rates compound its latest monthly changes. The trimmed mean's 12-, 6-, and 1-month rates are the Dallas Fed's own; its 3-month rate compounds the three latest 1-month rates, which FRED rounds to two decimals, so it can differ from an unrounded calculation by a few hundredths. The New York Fed trend is already a trend estimate and has no shorter versions, so the table shows only its 12-month rate.
+- The table has two blocks: headline and core, then the six measures in the top panel's gray range, under a heading that matches its legend.
+- The table shades each cell by its distance from 2 percent, orange above and blue below, reaching full color 3 points away.
 - The top panel's gray range spans the six measures other than headline and core, in months when at least five are available.
 
 ## Vintages
@@ -62,5 +64,7 @@ Sharif's latest value isn't matched. His tweet also mentions leaving out portfol
 
 ## Decision log
 
-- 2026-09-27: One figure in two panels: headline and core since 2019 with the range of the other measures, and every measure's latest 12-month and six-month rates. Side by side on desktops, stacked on phones, where side by side was too cramped.
+- 2026-09-27: One figure in two panels: headline and core since 2019 with the range of the other measures, and every measure's latest 12-month and six-month rates. Side by side on desktops, stacked on phones, where side by side was too cramped (superseded 2026-09-30).
+- 2026-09-30: Panels stacked at every width.
+- 2026-09-30: The bottom panel's dot plot of 12- and 6-month rates replaced by a table of 12-, 6-, 3-, and 1-month rates shaded from 2 percent. Rows keep a fixed order so they don't move between refreshes. The measures in the gray range are grouped under their own heading, with the New York Fed trend's 12-month rate, so the table and the range cover the same measures.
 - 2026-09-27: Market-based core excluding housing follows Sharif; the history matches his chart but the latest value doesn't (2.99 against 3.23).

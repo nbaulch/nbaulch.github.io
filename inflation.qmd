@@ -4,17 +4,30 @@ title: "Inflation"
 
 ## Underlying inflation
 
-Measures of underlying inflation set aside volatile price changes to gauge where inflation is heading. The Federal Reserve watches several, built in different ways, so the chart shows them together.
-
 ```{=html}
 <picture>
   <source media="(max-width: 600px)" srcset="charts/inflation-measures/output/inflation-measures-narrow.png">
-  <img src="charts/inflation-measures/output/inflation-measures.png" class="chart" alt="Two panels. One shows the 12-month change in headline and core PCE prices since 2019, with a shaded range for six other measures of underlying inflation. The other shows each measure's latest 12-month change and six-month change at an annual rate, with a dashed line at the Federal Reserve's 2 percent goal.">
+  <img src="charts/inflation-measures/output/inflation-measures.png" class="chart" alt="Two panels, one above the other. The top shows the 12-month change in headline and core PCE prices since 2019, with a shaded range for six other measures of underlying inflation and a dashed line at the Federal Reserve's 2 percent goal. The bottom is a table of the latest changes over 12, 6, 3, and 1 months at an annual rate, each cell shaded by its distance from 2 percent: headline and core first, then the six measures in the shaded range.">
 </picture>
 ```
 
 ::: {.chart-source}
 [Sources and data](sources.qmd#inflation-measures)
+:::
+
+## The 1970s
+
+Is inflation today tracking inflation from the 1970s? Probably not, but this continues to be a fun chart that's been circling around for the past few years.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/inflation-1970s/output/inflation-1970s-narrow.png">
+  <img src="charts/inflation-1970s/output/inflation-1970s.png" class="chart" alt="Line chart of the 12-month change in consumer prices since 2015, and the same measure from 1967 to 1983 shifted forward 571 months onto the same timeline, with today's years on the bottom axis and the 1970s years on the top axis.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources and data](sources.qmd#inflation-1970s)
 :::
 
 ## Breadth

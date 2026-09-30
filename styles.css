@@ -233,6 +233,13 @@ section.level2 + section.level2 {
   margin: 0;
 }
 
+/* A section label directly above a chart sits as close to the chart's title
+   as it would to a paragraph; the image carries its own space above the title. */
+h2 + picture .chart,
+h2 + .chart {
+  margin-top: -1rem;
+}
+
 /* Under a chart, the link reads as the chart's last line, just below the
    source line drawn in the image. */
 picture + .chart-source,
@@ -371,7 +378,7 @@ h2.topics-heading {
   width: 168px;
   height: 100px;
   object-fit: cover;
-  object-position: 50% 70%;
+  object-position: top;
   border: 1px solid var(--rule);
   border-radius: 4px;
   background: #ffffff;

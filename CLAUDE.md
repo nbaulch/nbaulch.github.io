@@ -2,7 +2,7 @@
 
 ## What this is
 
-My personal website: a home page about me, my resume, and a section of charts on the U.S. economy worth watching, built from public data and kept current. The charts are organized into a small number of topics. Each chart comes with a short note on why it is worth watching, never a reading of what the data show. Being selective matters more than being comprehensive, and each chart should earn its place by answering a distinct question.
+My personal website: a home page about me, my resume, and a section of charts on the U.S. economy worth watching, built from public data and kept current. The charts are organized into a small number of topics. Each chart comes with a short note I write. Being selective matters more than being comprehensive, and each chart should earn its place by answering a distinct question.
 
 Topics so far: the AI economy, interest rates, inflation, and trade. Build the site so adding a topic is straightforward, but don't build for topics that don't exist yet.
 
@@ -12,17 +12,17 @@ I'm a macroeconomist. I know the data and the economics well. I'm less experienc
 
 Much of the best analysis in this area is published once, as a blog post or a Fed note, and then goes stale. The site's value is keeping a few of those analyses current, with credit to the original authors, and adding charts of measures worth tracking.
 
-## No commentary, anywhere public
+## I do the writing
 
-For professional reasons, nothing public may interpret the data: not the site, and not this repo, which is public. That rules out findings, storylines, working hypotheses, forecasts, and statements of what the data show or which way they are moving, in page text, chart titles, annotations, specs, code comments, commit messages, and pull requests. Facts about method are fine: sources, transformations, whether a reproduction matches the original, and why a method was chosen.
+All page text, analysis, and commentary on the site is mine, as the home page says. Build the chart and show it to me; I write the words around it. When I give you text, use it as written, and point out anything that looks like a typo rather than changing it.
 
-Interpretation, such as what a refresh changed and what it might mean, goes to me privately, in the Claude app or by email, never into the repo or the site.
+Claude still writes what belongs to the chart itself (title, subtitle, legend, source line, and definitions on the sources page) and the spec, code comments, and commit messages. Those stay factual: what is shown and how it was built, not what it means. Leave interpretation for me.
 
 ## Topics and charts
 
 - **The AI economy**: `charts/ai-investment-gdp/`, `charts/ai-adoption/`, `charts/productivity-decomposition/`.
 - **Interest rates**: `charts/yield-decomposition/`, `charts/yield-rise-by-model/`, `charts/duration-supply/`. Candidate: the 10-year yield split into inflation-protected yield and breakeven inflation, with the 2-year yield.
-- **Inflation**, started September 2026: `charts/inflation-measures/`, `charts/inflation-breadth/` (reproduces Warsh's share of PCE categories rising faster than 3 percent), `charts/pce-cpi-gap/` (follows Konczal on the gap between core PCE and core CPI), and `charts/software-electricity-prices/` (contributions of software and electricity prices, adapted from the FEDS Note on software prices). Planned: inflation expectations. Release-day tools (PCE implied by CPI and PPI, surprises) come later; surprises need a public benchmark, such as the Cleveland Fed nowcast, since consensus forecasts are proprietary.
+- **Inflation**, started September 2026: `charts/inflation-measures/` (measures of underlying inflation over time, and a table of their latest rates over 12, 6, 3, and 1 months), `charts/inflation-1970s/` (today set against the 1970s, with the 571-month shift of the widely shared version), `charts/inflation-breadth/` (reproduces Warsh's share of PCE categories rising faster than 3 percent), `charts/pce-cpi-gap/` (follows Konczal on the gap between core PCE and core CPI), and `charts/software-electricity-prices/` (contributions of software and electricity prices, adapted from the FEDS Note on software prices). Planned: inflation expectations. Release-day tools (PCE implied by CPI and PPI, surprises) come later; surprises need a public benchmark, such as the Cleveland Fed nowcast, since consensus forecasts are proprietary.
 - **Trade**, started September 2026, built on the Census trade store: `charts/effective-tariff-rate/` (the collected tariff rate, following the Fed Board's April 2026 FEDS Note, and the rate at the 2024 mix of products and countries) and `charts/goods-balance/` (the goods balance by Census product category: computers, semiconductors and telecom equipment, pharmaceuticals, gold, and the rest). Planned: imports from China as reported by the United States and by China, with partner shares. Candidate: imports by size of tariff increase.
 
 ## Chart candidates
@@ -50,6 +50,7 @@ These are the analyses I've been considering. Treat them as starting points. Ver
 ## How I want to work
 
 - Start with one chart and get it right before building a framework around it.
+- Don't commit or push until we've discussed the change and I've said to. Make edits locally, show me the result, and wait. One commit when we agree beats several along the way.
 - When maintaining someone else's analysis, reproduce their published numbers for their original period before extending it. If you can't match them, stop and tell me what differs.
 - Measuring the right thing matters more than matching the original, but replication is what makes a chart defensible, so deviate only with confidence. A deviation needs a reason grounded in data, not preference, and a consistency check against an independent source that the new method passes. Report how much it moves the result, keep `reproduce.R` matching the original under their method, record the deviation in the spec's decision log, and say on the chart that the method is adapted.
 - Each chart should have a written spec: sources, series identifiers, transformations, vintage handling, and known breaks. The spec is what makes refreshes reliable and reviewable.
@@ -124,11 +125,11 @@ The standard is a repo Hadley Wickham would be proud of: well thought out, funct
 
 ## Writing
 
-The standard is text an Economist sub-editor would pass and a busy senior official would thank you for: plain, short, specific, and neutral. Readers come for the charts. Text exists to get them to the chart and to make it readable, then gets out of the way. Wordy text is a failure, not a safe default.
+These rules apply to the text Claude writes: chart titles, subtitles, legends, notes, and specs. The standard is text an Economist sub-editor would pass and a busy senior official would thank you for: plain, short, specific, and neutral. Readers come for the charts. Text exists to get them to the chart and to make it readable, then gets out of the way. Wordy text is a failure, not a safe default.
 
 - **Every sentence earns its place.** Before keeping one, ask what a reader loses if it goes. If the answer is nothing, or something said elsewhere, cut it. The first edit of any draft removes; rewording comes second.
 - **Say it once, in the right place.** Each fact has one home: what is shown in the title; units, basis, and adjustment in the subtitle; series names in the legend; definitions on the sources page; method, caveats, and reasoning in the spec. Page text never restates any of them.
-- **Page text has one job:** one to three sentences on why a chart is worth watching, the question it bears on, who is debating it, and whose analysis it follows. It never says what the data show: no values, no direction, no conclusion.
+- **Page text is mine.** Leave the paragraph above a new chart for me to write, with a placeholder if the page needs one to render.
 - **No explaining the method on the page.** Why a series is adjusted, how a measure is built, what a revision means: the spec holds it, or the sources page if a reader needs it to read the chart.
 - **Plain words, named for what they are.** "Imports of computers", not "AI hardware". Everyday terms over jargon; no acronyms a general reader doesn't know on sight. If a category is broader than its label, name the components.
 - **No filler.** No "this chart shows", "it is worth noting", "importantly", "key", or "notably". No hedges, no throat-clearing, no summary of what was just said. Titles are under ten words, subtitles one line.

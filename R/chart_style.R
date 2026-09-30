@@ -26,6 +26,22 @@ systemfonts::register_font(
   bold = "fonts/Roboto-Bold.ttf"
 )
 
+# Diverging fill for values around a reference, such as an inflation goal:
+# lighter blue below, orange above, near white at the reference. Values more
+# than `span` from it take the end colors.
+scale_fill_chart_diverging <- function(midpoint, span = 3) {
+  scale_fill_gradient2(
+    low = "#6f9fcc",
+    mid = "#f4f3ef",
+    high = chart_colors[["orange"]],
+    midpoint = midpoint,
+    limits = midpoint + c(-span, span),
+    oob = scales::squish,
+    na.value = "white",
+    guide = "none"
+  )
+}
+
 theme_chart <- function(base_size = 12) {
   theme_minimal(base_size = base_size, base_family = "Roboto Chart") +
     theme(
