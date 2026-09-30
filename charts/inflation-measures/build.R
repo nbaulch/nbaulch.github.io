@@ -111,9 +111,10 @@ measures <- tribble(
   "trimmed_mean", "Trimmed mean", "The average price change after dropping the largest and smallest each month."
 )
 
-latest <- inflation |>
-  filter(date == latest_month) |>
-  left_join(measures, by = "measure")
+# The Cleveland, Dallas, and New York Feds publish after BEA, so on a PCE
+# release day their measures keep their rows, with dashes, until they post.
+latest <- measures |>
+  left_join(filter(inflation, date == latest_month), by = "measure")
 month_label <- format(latest_month, "%B %Y")
 
 write_chart_notes(
@@ -172,6 +173,7 @@ horizons <- c(twelve_month = "12 months", six_month = "6 months", three_month = 
 
 rate_table <- function(rates, label_width, header_width, text_size, title, show_headers) {
   table <- rates |>
+    mutate(published = !is.na(twelve_month)) |>
     pivot_longer(all_of(names(horizons)), names_to = "horizon", values_to = "rate") |>
     mutate(
       horizon = factor(horizons[horizon], levels = horizons),
@@ -180,8 +182,15 @@ rate_table <- function(rates, label_width, header_width, text_size, title, show_
   ggplot(table, aes(horizon, label, fill = rate)) +
     geom_tile(colour = "white", linewidth = 1.5) +
     geom_text(
+      data = filter(table, published),
       aes(label = if_else(is.na(rate), "\u2013", sprintf("%.1f", rate))),
       size = text_size, family = "Roboto Chart", colour = chart_greys[["title"]]
+    ) +
+    # Centered across the four columns.
+    geom_text(
+      data = distinct(filter(table, !published), label),
+      aes(x = 2.5, y = label, label = "Not yet published"),
+      inherit.aes = FALSE, size = text_size, family = "Roboto Chart", colour = chart_greys[["muted"]]
     ) +
     scale_fill_chart_diverging(midpoint = 2) +
     scale_x_discrete(
