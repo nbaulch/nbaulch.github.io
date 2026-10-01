@@ -28,7 +28,7 @@ The image has four levels of text, and nothing else competes with them. Everythi
 - **No acronyms in anything a reader sees**: titles, labels, legends, notes. Spell out total factor productivity, not TFP. The exceptions are ones any reader knows, such as GDP and AI.
 - **Units go in the subtitle** and in any label that shows a value. No axis titles when the subtitle already gives the units.
 - **Legend labels are short**, two or three words. Anything a short label leaves out goes in the notes.
-- **The source line in the image is short**: the data's provider and the original analysis by author and outlet, so an image saved or shared on its own still says where it came from. No data end date when the chart already shows it; that goes in the notes on the page.
+- **The source line in the image is short**: the data's provider and, when the chart credits one, the original analysis by author and outlet, so an image saved or shared on its own still says where it came from. No data end date when the chart already shows it; that goes in the notes on the page.
 - Sentence case everywhere. No rotated axis labels. Drop trailing zeros from numbers.
 
 ## Text around the chart
@@ -38,7 +38,7 @@ Write for a busy senior reader, like a staff economist briefing the Treasury sec
 - **One paragraph above the chart, written by Nicholas.** Anything a reader must know to read the chart correctly goes here, not in the notes.
 - The paragraph is written directly in the topic page, so it doesn't change on refresh.
 - **Notes on the sources page are one-line definitions of the legend items**, in legend order, passed to `write_chart_notes()` as "**Label:** definition." and shown as the term beside its definition. No caveats, methods, or analysis; those go in the spec.
-- **The source line is short**: the providers, the data's end date, and a link to the original analysis. Smaller and lighter than the notes. It ends with the data download link.
+- **The source line is short**: the providers, the data's end date, and a link to any original analysis the chart credits. Smaller and lighter than the notes. It ends with the data download link.
 - `write_chart_notes()` writes the definitions and source to `output/<chart>-notes.md`. The topic page links to the chart's entry on `sources.qmd`, which includes the notes file under a heading whose id is the chart's folder name. Styles are `.chart-notes` and `.chart-source` in `styles.css`.
 
 ## Color
