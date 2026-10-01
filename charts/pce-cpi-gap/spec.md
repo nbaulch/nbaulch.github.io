@@ -6,7 +6,7 @@ Status: built in R from BEA's monthly NIPA files and BLS's CPI flat files and re
 
 How far is the gap between core PCE and core CPI inflation from its pre-pandemic average, and which items account for the difference?
 
-## Original analysis
+## Related work
 
 Mike Konczal, "Is the Actual Inflation Rate PCE and High or CPI and Low?", August 28, 2026. https://newsletter.mikekonczal.com/p/is-the-actual-inflation-rate-pce. Charts the 12-month core CPI and core PCE rates and their difference back to 1960. Quotes core PCE 3.34 and core CPI 2.47 percent over the 12 months to July 2026, a 0.87 point difference; an average of 0.34 point with CPI higher from 2011 to 2019; portfolio management accounting for about 0.31 point; and software weights of 1.10 percent in PCE against 0.03 percent in CPI. Cites BEA table 9.1U for the full reconciliation.
 
@@ -63,5 +63,6 @@ Konczal's gap differs in the second decimal because he subtracts rounded rates. 
 ## Decision log
 
 - 2026-09-27: Two lines, the gap and the gap excluding portfolio management and software. Starts in 2011 to include Konczal's 2011 to 2019 comparison period.
-- 2026-10-01: Replaced by item contributions to the gap, as changes from the 2011–19 average. After BEA's annual update, portfolio management explained little of the gap's rise. A ranking of items by their change from the 2011–19 average put car insurance, computers, medical services, and software at the top; housing and prescription drugs moved the other way. Computers and software are combined, matching the productivity chart's label. Built from BLS's published weights rather than estimated ones. The method is adapted from Konczal, and the chart says so.
+- 2026-10-01: Replaced by item contributions to the gap, as changes from the 2011–19 average. After BEA's annual update, portfolio management explained little of the gap's rise. A ranking of items by their change from the 2011–19 average put car insurance, computers, medical services, and software at the top; housing and prescription drugs moved the other way. Computers and software are combined, matching the productivity chart's label. Built from BLS's published weights rather than estimated ones.
+- 2026-10-01: No credit line on the chart. The comparison and the 2011–19 period come from Konczal, but the item breakdown is the chart's own; `reproduce.R` still checks his figures.
 - 2026-10-01: Stacked bars of the parts with a line for the gap, from 2015. Bars are 75 percent of a month wide, and Other, in gray, stacks outside the colored parts.

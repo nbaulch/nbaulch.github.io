@@ -107,9 +107,7 @@ write_chart_notes(
   ),
   source = str_glue(
     "Sources: Bureau of Economic Analysis, through {month_label}; Bureau of Labor Statistics, with CPI weights from its ",
-    "[relative importance tables](https://www.bls.gov/cpi/tables/relative-importance/home.htm). Adapted from Mike ",
-    "Konczal, [\"Is the Actual Inflation Rate PCE and High or CPI and Low?\"]",
-    "(https://newsletter.mikekonczal.com/p/is-the-actual-inflation-rate-pce), August 28, 2026."
+    "[relative importance tables](https://www.bls.gov/cpi/tables/relative-importance/home.htm)."
   ),
   csv_path = file.path(chart_dir, "output", "pce-cpi-gap.csv"),
   path = file.path(chart_dir, "output", "pce-cpi-gap-notes.md")
@@ -138,7 +136,7 @@ gap_chart <- function(break_years, legend_columns) {
 
 title <- "Gap between core PCE and core CPI inflation"
 subtitle <- "Change from the 2011–19 average, 12 months, percentage points"
-source_line <- "Sources: Bureau of Economic Analysis; Bureau of Labor Statistics. Adapted from Mike Konczal, August 2026."
+source_line <- "Sources: Bureau of Economic Analysis; Bureau of Labor Statistics."
 
 save_chart(
   gap_chart(break_years = 2, legend_columns = 4) + chart_labels(title, subtitle, source_line, width = 8),
