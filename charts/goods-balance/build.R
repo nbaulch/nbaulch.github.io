@@ -81,7 +81,7 @@ balance_chart <- balance_chart_data |>
   mutate(category = factor(categories[category], levels = categories)) |>
   ggplot(aes(date, balance)) +
   # The named products sit next to zero, where their bars share a baseline.
-  geom_col(aes(fill = category), width = 25, position = position_stack(reverse = TRUE)) +
+  geom_col(aes(fill = category), width = 23, colour = "white", linewidth = 0.2, position = position_stack(reverse = TRUE)) +
   geom_hline(yintercept = 0, colour = chart_greys[["baseline"]], linewidth = 0.4) +
   geom_point(data = balance_chart_data, aes(y = total), size = 0.9, colour = chart_greys[["title"]]) +
   scale_fill_manual(values = unname(chart_colors[c("blue", "teal", "orange", "gold", "grey")])) +

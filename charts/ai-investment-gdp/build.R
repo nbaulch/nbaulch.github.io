@@ -113,7 +113,7 @@ bars <- recent |>
   mutate(series = factor(series, levels = components$series))
 
 investment_chart <- ggplot(bars, aes(date, contribution)) +
-  geom_col(aes(fill = series), width = 75, colour = "white", linewidth = 0.4) +
+  geom_col(aes(fill = series), width = 68, colour = "white", linewidth = 0.4) +
   geom_hline(yintercept = 0, colour = chart_greys[["baseline"]], linewidth = 0.4) +
   geom_point(
     data = recent,

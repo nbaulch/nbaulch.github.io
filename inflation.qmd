@@ -47,12 +47,12 @@ Price increases spread across many categories are harder to attribute to one-off
 
 ## PCE and CPI
 
-The Federal Reserve's 2 percent goal is for PCE inflation, but CPI is released first and draws more attention. The two differ in coverage and weights: portfolio management fees, which move with stock prices, are in PCE but not CPI, and software weighs far more in PCE. The chart follows [Mike Konczal's August 2026 analysis](https://newsletter.mikekonczal.com/p/is-the-actual-inflation-rate-pce).
+Pre-pandemic, core CPI tended to run about 35bps hotter than core PCE. That’s flipped in 2026, with core PCE now running 50bps hotter. The biggest drivers in the change are computers/software and medical services, which are more heavily weighted in the PCE basket. Car insurance prices are now falling—another contributor to the higher gap given its lower weight in the PCE basket. Given AI trends and demographics, it’s hard to see these first two trends going back to “normal” any time soon.
 
 ```{=html}
 <picture>
   <source media="(max-width: 600px)" srcset="charts/pce-cpi-gap/output/pce-cpi-gap-narrow.png">
-  <img src="charts/pce-cpi-gap/output/pce-cpi-gap.png" class="chart" alt="Line chart, monthly since 2011, of core PCE inflation minus core CPI inflation over 12 months, and the same gap excluding portfolio management and software, with a dashed line for the 2011 to 2019 average.">
+  <img src="charts/pce-cpi-gap/output/pce-cpi-gap.png" class="chart" alt="Stacked bar chart, monthly since 2015, of the gap between core PCE and core CPI inflation over 12 months, as the change from its 2011 to 2019 average, split into computers and software, car insurance, medical services, and other, with a line for the gap.">
 </picture>
 ```
 
