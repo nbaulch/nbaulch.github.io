@@ -80,7 +80,7 @@ bars <- panels |>
   mutate(part = factor(part, levels = parts$part))
 
 yield_rise_chart <- ggplot(bars, aes(date, change)) +
-  geom_col(aes(fill = part), width = 5.5, colour = "white", linewidth = 0.2) +
+  geom_col(aes(fill = part), width = 5.25, colour = "white", linewidth = 0.2) +
   geom_hline(yintercept = 0, colour = chart_greys[["baseline"]], linewidth = 0.4) +
   geom_line(data = panels, aes(y = yield, linetype = "10-year yield"), colour = chart_greys[["title"]], linewidth = 0.8) +
   facet_wrap(vars(model)) +

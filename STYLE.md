@@ -76,6 +76,8 @@ Roboto, Datawrapper's default. It has lining, tabular figures, so numbers align.
 ## Layout
 
 - Horizontal gridlines only, in light grey. No axis lines or tick marks.
+- Bars never touch: each is 75 percent of its period wide, leaving a gap between bars.
+- In a stacked chart, grey parts such as "other" stack on the outer end, never next to zero.
 - A darker zero line when values go negative.
 - Legend at the top left, above the plot.
 - A chart with more than one panel stacks them, one above the other, at every width.

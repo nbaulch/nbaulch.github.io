@@ -80,7 +80,7 @@ bars <- changes |>
   mutate(part = factor(part, levels = parts$part))
 
 term_premium_chart <- ggplot(bars, aes(date, change)) +
-  geom_col(aes(fill = part), width = 24, colour = "white", linewidth = 0.2) +
+  geom_col(aes(fill = part), width = 23, colour = "white", linewidth = 0.2) +
   geom_hline(yintercept = 0, colour = chart_greys[["baseline"]], linewidth = 0.4) +
   geom_line(data = changes, aes(y = yield, linetype = "10-year yield"), colour = chart_greys[["title"]], linewidth = 0.8) +
   scale_fill_manual(values = setNames(parts$colour, parts$part), labels = setNames(parts$label, parts$part)) +
