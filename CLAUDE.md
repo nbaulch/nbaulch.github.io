@@ -51,6 +51,7 @@ These are the analyses I've been considering. Treat them as starting points. Ver
 
 - Start with one chart and get it right before building a framework around it.
 - Don't commit or push until we've discussed the change and I've said to. Make edits locally, show me the result, and wait. One commit when we agree beats several along the way.
+- Before pushing to a branch with a pull request, check that the pull request is still open; I often merge right away. If it's merged or closed, start a new branch from `main` and open a new pull request. Never tell me a change is in an open pull request without checking.
 - When a chart starts from someone else's analysis, check it against their published numbers where you can, and tell me what differs. A mismatch is worth knowing, not a reason to stop.
 - Reproduction checks are for building a chart. Once it's set up, refreshes and revisions don't need `reproduce.R` rerun, and a later mismatch from revised data isn't a problem to fix.
 - Measuring the right thing matters more than matching the original. When a chart departs from the work it started from, record why in the spec's decision log.
