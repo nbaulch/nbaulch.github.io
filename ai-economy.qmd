@@ -32,6 +32,21 @@ Whether AI use spreads from large firms to small ones bears on how much AI will 
 [Sources and data](sources.qmd#ai-adoption)
 :::
 
+## Paying for AI
+
+Surveys ask businesses whether they use AI; payment records show which AI companies they pay. Ramp, a corporate card company, reports the share of its customers paying for AI each month in the [Ramp AI Index](https://ramp.com/data/ai-index), led by Ara Kharazian. Its customers are not a random sample of businesses, and free tools don't appear.
+
+```{=html}
+<picture>
+  <source media="(max-width: 600px)" srcset="charts/ai-providers/output/ai-providers-narrow.png">
+  <img src="charts/ai-providers/output/ai-providers.png" class="chart" alt="Line chart, monthly since January 2023, of the share of businesses that use Ramp for payments paying for AI from any provider, and from OpenAI, Anthropic, and xAI.">
+</picture>
+```
+
+::: {.chart-source}
+[Sources and data](sources.qmd#ai-providers)
+:::
+
 ## Productivity
 
 If AI makes businesses more efficient, it should show up in total factor productivity: output growth not explained by more capital, more skilled workers, or working existing staff and equipment harder. The chart adapts [Ernie Tedeschi's July 2026 analysis](https://www.stripeeconomics.com/p/ai-and-productivity) for Stripe.

@@ -16,6 +16,10 @@ title: "Sources and data"
 
 {{< include charts/ai-adoption/output/ai-adoption-notes.md >}}
 
+### Paying for AI {#ai-providers}
+
+{{< include charts/ai-providers/output/ai-providers-notes.md >}}
+
 ### Productivity {#productivity-decomposition}
 
 {{< include charts/productivity-decomposition/output/productivity-decomposition-notes.md >}}
