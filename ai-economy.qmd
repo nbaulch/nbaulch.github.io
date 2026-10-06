@@ -34,7 +34,7 @@ Whether AI use spreads from large firms to small ones bears on how much AI will 
 
 ## Paying for AI
 
-Surveys ask businesses whether they use AI; payment records show which AI companies they pay. Ramp, a corporate card company, reports the share of its customers paying for AI each month in the [Ramp AI Index](https://ramp.com/data/ai-index), led by Ara Kharazian. Its customers are not a random sample of businesses, and free tools don't appear.
+Which AI companies businesses pay bears on competition among the makers of AI models. The chart follows Ara Kharazian's [Ramp AI Index](https://ramp.com/data/ai-index).
 
 ```{=html}
 <picture>
