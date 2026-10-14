@@ -16,7 +16,7 @@ All other goods
 :   Everything else.
 
 ::: {.chart-source}
-Source: Census Bureau, U.S. imports and exports of merchandise by product, through July 2026, not seasonally adjusted. Exports less general imports. [Download the data (CSV)](charts/goods-balance/output/goods-balance.csv)
+Source: Census Bureau, U.S. imports and exports of merchandise by product, through August 2026, not seasonally adjusted. Exports less general imports. [Download the data (CSV)](charts/goods-balance/output/goods-balance.csv)
 :::
 
 :::
