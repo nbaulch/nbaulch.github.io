@@ -63,10 +63,15 @@ fetch_census_trade_month <- function(flow, month) {
   on.exit(unlink(dir, recursive = TRUE))
   zip <- file.path(dir, "download.zip")
   dir.create(dir)
-  # Import files run to 200 MB, past R's default one-minute download timeout.
-  op <- options(timeout = 900)
-  on.exit(options(op), add = TRUE)
-  download.file(census_trade_url(flow, month), zip, mode = "wb", quiet = TRUE)
+  # Import files run to 200 MB, and Census often drops the connection partway
+  # through. curl retries and picks up from where the transfer stopped, rather
+  # than starting the whole file again.
+  status <- system2("curl", c(
+    "--fail", "--location", "--silent", "--show-error",
+    "--retry", "8", "--retry-all-errors", "--continue-at", "-",
+    "--output", zip, census_trade_url(flow, month)
+  ))
+  if (status != 0) stop("Download failed: ", census_trade_url(flow, month))
   # File names inside are upper case in recent years and lower case in older ones.
   contents <- unzip(zip, list = TRUE)$Name
   needed <- c(detail = if (flow == "imports") "IMP_DETL.TXT" else "EXP_DETL.TXT", codes = "CONCORD.TXT", countries = "COUNTRY.TXT")
