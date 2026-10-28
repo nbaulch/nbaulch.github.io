@@ -37,7 +37,9 @@ trade_by_product <- list(imports = "gen_val", exports = "all_val") |>
   list_rbind()
 
 trade_by_category <- trade_by_product |>
-  left_join(product_categories, by = c("flow", "year", "commodity")) |>
+  # A product missing from the code list fails the build rather than
+  # dropping out of every category.
+  inner_join(product_categories, by = c("flow", "year", "commodity"), unmatched = c("error", "drop")) |>
   summarise(value = sum(value) / 1e9, .by = c(date, flow, category)) |>
   arrange(date, flow, category)
 

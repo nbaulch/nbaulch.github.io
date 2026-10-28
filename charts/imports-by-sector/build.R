@@ -70,8 +70,7 @@ periods <- tibble(
 )
 
 product_sectors <- read_census_trade_codes("imports", year(periods$date)) |>
-  transmute(year, commodity, sector = sector_of(commodity, description, end_use)) |>
-  filter(!is.na(sector))
+  transmute(year, commodity, sector = sector_of(commodity, description, end_use))
 
 # General imports for the value, as in the deficit chart; imports for
 # consumption for the tariff rate, since duty is assessed on them.
@@ -81,7 +80,10 @@ imports_by_sector <- read_census_trade("imports", make_date(base_year), latest_m
   summarise(across(everything(), sum), .by = c(date, commodity)) |>
   collect() |>
   mutate(year = year(date)) |>
-  inner_join(product_sectors, by = c("year", "commodity")) |>
+  # A product missing from the code list fails the build rather than
+  # dropping out of its sector.
+  inner_join(product_sectors, by = c("year", "commodity"), unmatched = c("error", "drop")) |>
+  filter(!is.na(sector)) |>
   inner_join(periods, by = "date") |>
   summarise(across(c(gen_val, con_val, cal_dut), sum), .by = c(sector, period)) |>
   arrange(sector, period)
