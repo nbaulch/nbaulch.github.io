@@ -63,7 +63,7 @@ These are the analyses I've been considering. Treat them as starting points. Ver
 ## Constraints
 
 - Public data and personal tools and accounts only.
-- Nothing publishes without my review, except data refreshes: they rerun reviewed code on new data and write no text. Code, page text, and new charts go through pull requests.
+- Nothing publishes without my review, with two exceptions that write no text: data refreshes, which rerun reviewed code on new data, and Claude's fixes to fetch and build code, which Claude may merge once the pull request check passes (see Publishing). Everything else goes through pull requests I review and merge.
 - I prefer to work in R.
 
 ## Repo layout
@@ -97,7 +97,9 @@ cache/                  large raw downloads (not committed)
 
 The site is https://nbaulch.github.io/, built from the `nbaulch/nbaulch.github.io` repo with Quarto and hosted on GitHub Pages.
 
-- `main` is protected. Every change goes through a pull request that I review and merge.
+- `main` is protected. Every change goes through a pull request. I review and merge them, except the fixes Claude may merge itself.
+- `.github/workflows/check.yml` runs on every pull request. It parses each changed R file and reruns the `build.R` of every chart the change could affect, or of every chart when `R/` or `renv.lock` changes. It writes nothing.
+- Claude may merge its own pull request when the check passes and the change only fixes how data is fetched or processed, in `R/fetch_*.R`, `scripts/`, or a chart's `build.R`, plus a spec decision-log entry recording the fix. It must not change chart text (titles, subtitles, legends, notes, source lines), chart styling, or what a chart measures. Everything else waits for me, including new charts, page text, `CLAUDE.md`, and workflows. Claude tells me in the daily email what it merged.
 - Any push to `main` runs `.github/workflows/publish.yml`, which renders the pages and publishes them. It does not run R.
 - Two workflows run R. `census-trade-data.yml` maintains the Census trade store; it changes only release assets. `refresh-charts.yml` runs after it each day: it reruns every chart's `build.R` and commits the charts whose plotted CSV changed, so new data and revisions publish the same day. A failed build leaves that chart as it was and marks the run failed, which GitHub emails me about. It pushes to `main` with a deploy key that the `main` ruleset lets bypass its pull request rule, and needs the repository secrets `DEPLOY_KEY` and `CENSUS_API_KEY`.
 - A Claude Routine, separate from the workflows, reads each day's refresh commit on `main` and emails me a private interpretation of what changed. It never writes to the repo or GitHub. Its prompt lives in the Routine, not here.
