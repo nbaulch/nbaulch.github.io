@@ -47,6 +47,7 @@ if (system2("gh", c("release", "view", release), stdout = FALSE, stderr = FALSE)
   )
 }
 system2("gh", c("release", "download", release, "--pattern", "manifest.csv", "--dir", store_dir, "--clobber"))
+system2("gh", c("release", "download", release, "--pattern", shQuote("*-codes-*.csv"), "--dir", store_dir, "--clobber"))
 
 manifest <- if (file.exists(manifest_path)) {
   read_csv(manifest_path, col_types = "ccDcic")
@@ -90,10 +91,17 @@ for (i in seq_len(nrow(to_update))) {
   arrow::write_parquet(month$trade, file.path(store_dir, file), compression = "zstd")
   upload(file.path(store_dir, file))
 
-  # Codes change each January, so each year keeps its own list.
-  codes <- str_glue("{source_file$flow}-codes-{year(source_file$date)}.csv")
-  write_csv(month$commodities, file.path(store_dir, codes))
-  upload(file.path(store_dir, codes))
+  # Codes change each January, so each year keeps its own list. Census also
+  # adds codes partway through a year, so the list keeps every code any month
+  # of the year has carried: pulling an early month again must not drop codes
+  # that only later months use.
+  codes_path <- file.path(store_dir, str_glue("{source_file$flow}-codes-{year(source_file$date)}.csv"))
+  stored_codes <- if (file.exists(codes_path)) read_csv(codes_path, col_types = cols(.default = "c")) else month$commodities
+  month$commodities |>
+    bind_rows(anti_join(stored_codes, month$commodities, by = "commodity")) |>
+    arrange(commodity) |>
+    write_csv(codes_path)
+  upload(codes_path)
   if (source_file$date == max(sources$date)) {
     write_csv(month$countries, file.path(store_dir, "countries.csv"))
     upload(file.path(store_dir, "countries.csv"))
