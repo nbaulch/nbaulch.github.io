@@ -1,0 +1,67 @@
+# Checks a pull request before it merges: parses every changed R file and
+# reruns the build of each chart the change could affect. A change to shared
+# code in R/ or to renv.lock affects every chart. The builds write only to
+# the runner's checkout, so nothing is committed or published.
+#
+# scripts/update_census_trade.R is only parsed, since running it means
+# uploading to the trade store.
+name: Check pull request
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: renv
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-renv@v2
+      # Libraries the ragg graphics device needs to draw charts.
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends libfreetype6 libpng16-16t64 libtiff6 libjpeg-turbo8 libwebp7 libwebpmux3 libharfbuzz0b libfribidi0
+      # Reuses the refresh workflow's copy of the trade store without saving
+      # a new one for each pull request.
+      - uses: actions/cache/restore@v6
+        with:
+          path: cache/census_trade
+          key: census-trade-${{ github.run_id }}
+          restore-keys: census-trade-
+      - run: |
+          changed=$(git diff --name-only "origin/$BASE_REF...HEAD")
+
+          for file in $(grep '\.R$' <<< "$changed" || true); do
+            if [ -f "$file" ]; then
+              Rscript -e "invisible(parse('$file'))"
+            fi
+          done
+
+          if grep -qE '^(R/|renv\.lock$)' <<< "$changed"; then
+            charts=$(ls -d charts/*)
+          else
+            charts=$(grep '^charts/' <<< "$changed" | cut -d/ -f1-2 | sort -u || true)
+          fi
+
+          failed=""
+          for chart in $charts; do
+            if [ -f "$chart/build.R" ]; then
+              echo "::group::$chart"
+              Rscript "$chart/build.R" || failed="$failed $(basename "$chart")"
+              echo "::endgroup::"
+            fi
+          done
+          if [ -n "$failed" ]; then
+            echo "::error::Builds failed:$failed"
+            exit 1
+          fi
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
