@@ -58,6 +58,6 @@ fetch_nyfed_mct <- function() {
     col_names = FALSE,
     col_types = cols(.default = "c")
   ) |>
-    transmute(date = mdy(X2), trend_low = as.numeric(X3), trend = as.numeric(X4), trend_high = as.numeric(X5)) |>
+    transmute(date = ymd(X2), trend_low = as.numeric(X3), trend = as.numeric(X4), trend_high = as.numeric(X5)) |>
     filter(!is.na(date))
 }
