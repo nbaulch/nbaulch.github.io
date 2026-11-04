@@ -1,17 +1,17 @@
 sector,imports_base,imports_recent,imports_change,tariff_rate_base,tariff_rate_recent
-Copper,17.102,28.403,66.084,1.046,7.838
-Aluminum,27.445,29.903,8.956,3.676,40.009
-Trucks and vans,47.273,43.036,-8.963,0.238,10.112
-Furniture,55.557,47.06,-15.295,4.669,16.381
-Cell phones,50.953,52.198,2.444,0,3.604
-Steel,80.972,59.614,-26.377,4.424,35.156
-Vehicle parts,86.685,81.685,-5.768,3.927,12.827
-Apparel and footwear,107.588,100.568,-6.525,14.047,26.095
-Passenger vehicles,217.133,171.386,-21.069,1.612,14.96
-Pharmaceuticals,245.001,195.832,-20.069,0.028,0.311
-Energy,241.334,219.048,-9.235,0.143,0.052
-Food and farm goods,230.954,225.473,-2.373,1.53,6.844
-Electrical equipment,251.717,249.331,-0.948,3.554,12.895
-Semiconductors and telecom equipment,165.942,269.542,62.431,1.324,2.636
-Machinery,313.227,309.104,-1.316,2.728,13.373
-Computers and parts,217.375,551.241,153.59,0.42,0.742
+Copper,17.102,30.366,77.562,1.046,7.496
+Aluminum,27.445,30.583,11.431,3.676,40.028
+Trucks and vans,47.273,43.239,-8.534,0.238,10.25
+Furniture,55.557,47.073,-15.271,4.669,16.074
+Cell phones,50.953,53.298,4.602,0,2.32
+Steel,80.972,60.174,-25.686,4.424,35.172
+Vehicle parts,86.685,81.636,-5.824,3.927,11.962
+Apparel and footwear,107.588,101.226,-5.914,14.047,25.389
+Passenger vehicles,217.133,171.689,-20.929,1.612,14.63
+Pharmaceuticals,245.001,183.929,-24.927,0.028,0.303
+Energy,241.334,223.615,-7.342,0.143,0.062
+Food and farm goods,230.954,226.722,-1.833,1.53,6.487
+Electrical equipment,251.717,252.017,0.119,3.554,12.438
+Semiconductors and telecom equipment,165.942,286.282,72.519,1.324,2.41
+Machinery,313.227,313.937,0.227,2.728,12.839
+Computers and parts,217.375,596.455,174.39,0.42,0.679
