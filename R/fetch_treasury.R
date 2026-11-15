@@ -13,13 +13,15 @@ fetch_treasury_mspd_marketable <- function(from) {
     `page[number]` = page
   )
 
-  first_page <- httr::GET(url, query = query(1)) |> httr::content(as = "parsed", simplifyVector = TRUE)
-
-  map(seq_len(first_page$meta$`total-pages`), \(page) {
+  fetch_page <- \(page) {
     httr::GET(url, query = query(page)) |>
-      httr::content(as = "parsed", simplifyVector = TRUE) |>
-      pluck("data")
-  }) |>
+      httr::stop_for_status(task = "fetch the Monthly Statement of the Public Debt from Treasury") |>
+      httr::content(as = "parsed", simplifyVector = TRUE)
+  }
+
+  first_page <- fetch_page(1)
+
+  map(seq_len(first_page$meta$`total-pages`), \(page) pluck(fetch_page(page), "data")) |>
     list_rbind() |>
     as_tibble() |>
     # Reopenings of a security share its CUSIP; only the first row of each
