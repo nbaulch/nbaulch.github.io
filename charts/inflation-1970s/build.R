@@ -22,6 +22,14 @@ cpi <- tidyusmacro::getFRED(cpi = "CPIAUCSL")
 latest_month <- max(cpi$date)
 write_csv(cpi, file.path(chart_dir, "data", str_glue("fred_cpi_{latest_month}.csv")))
 
+# BLS collected no prices for October 2025, during the federal shutdown, so the
+# index has no value that month. A missing month is filled with the geometric
+# mean of the months on either side, so the 12-month changes through October
+# 2026 can be computed.
+cpi <- cpi |>
+  arrange(date) |>
+  mutate(cpi = if_else(is.na(cpi), sqrt(lag(cpi) * lead(cpi)), cpi))
+
 inflation <- cpi |>
   arrange(date) |>
   transmute(date, inflation = 100 * (cpi / lag(cpi, 12) - 1)) |>
@@ -52,6 +60,11 @@ write_chart_notes(
     str_glue(
       "**1970s:** The same, from {format(seventies_start, '%B %Y')} to {format(seventies_end, '%B %Y')}, ",
       "shifted forward {shift_months} months, or 47 years and 7 months. The top axis gives its years."
+    ),
+    str_glue(
+      "**October 2025:** BLS collected no prices that month, during the federal shutdown. The index is filled ",
+      "with the geometric mean of September and November 2025, so the 12-month changes for October 2025 and ",
+      "October 2026 are estimates."
     )
   ),
   source = str_glue(

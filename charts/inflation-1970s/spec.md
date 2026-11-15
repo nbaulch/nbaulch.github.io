@@ -23,6 +23,7 @@ No single original author is identified. Versions checked:
 
 ## Transformations
 
+- October 2025 has no index value: BLS collected no prices that month, during the federal shutdown, and publishes no 12-month change for October 2026. The month is filled with the geometric mean of September and November 2025 (324.654), so the line has no gap. This affects the 12-month changes for October 2025 and October 2026; November 2025 to September 2026 compare with published months.
 - Inflation = 100 × (index over its value 12 months earlier − 1).
 - The 1970s line is the same series shifted forward 571 months (47 years and 7 months): its value at each date is inflation 571 months earlier. The shift sets June 2022 on November 1974.
 - The chart shows January 2015 to December 2030, so the 1970s line covers June 1967 to May 1983. The bottom axis gives today's years; the top axis gives the 1970s line's years, placed where they fall after the shift.
@@ -41,8 +42,10 @@ The seasonally adjusted series gives the figures quoted in the pieces on this ch
 
 - The CPI treated homeownership costs differently before 1983, when BLS switched to owners' equivalent rent. The 1970s line uses the index as published then, not the research series (R-CPI-U-RS) that applies today's methods to earlier years.
 - The 571-month shift is taken from the circulating chart, not chosen here.
+- October 2025 is interpolated, not published (see Transformations), so the 12-month rates for October 2025 and October 2026 are estimates. BLS's own October 2026 release gives no 12-month change.
 
 ## Decision log
 
 - 2026-09-30: Headline CPI, seasonally adjusted, which matches the figures quoted for the circulating chart. The shift follows ING's 2023 version.
 - 2026-09-30: No credit line on the chart or sources page, at Nicholas's call, since the chart has no single original author.
+- 2026-11-12: Fill October 2025, which BLS never collected, with the geometric mean of September and November, at Nicholas's call. Without it the chart has no 12-month rate for October 2026 and none until the gap leaves the window. The geometric mean assumes the same monthly rate in October and November 2025.
