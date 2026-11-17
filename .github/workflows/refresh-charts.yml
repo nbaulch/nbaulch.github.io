@@ -47,6 +47,16 @@ jobs:
           path: cache/census_trade
           key: census-trade-${{ github.run_id }}
           restore-keys: census-trade-
+      # SEC filings and weekly Fed holdings never change once published, so
+      # keeping them between runs leaves only new ones to download. Without
+      # it, each run refetches every big tech prospectus from EDGAR.
+      - uses: actions/cache@v6
+        with:
+          path: |
+            cache/sec
+            cache/nyfed_soma
+          key: fixed-downloads-${{ github.run_id }}
+          restore-keys: fixed-downloads-
       - id: rebuild
         run: |
           failed=""

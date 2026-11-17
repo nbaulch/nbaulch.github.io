@@ -35,6 +35,13 @@ jobs:
           path: cache/census_trade
           key: census-trade-${{ github.run_id }}
           restore-keys: census-trade-
+      - uses: actions/cache/restore@v6
+        with:
+          path: |
+            cache/sec
+            cache/nyfed_soma
+          key: fixed-downloads-${{ github.run_id }}
+          restore-keys: fixed-downloads-
       - run: |
           changed=$(git diff --name-only "origin/$BASE_REF...HEAD")
 
