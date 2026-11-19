@@ -1,0 +1,163 @@
+date,sample,use,frequency,statistic,value
+2024-08-01,All,Any,Share Using GenAI,Mean,44.61920346
+2024-08-01,All,Any,Share Using GenAI,Std Err,1.081540279
+2024-08-01,All,Any,Share Used GenAI Last Week,Mean,36.0586362
+2024-08-01,All,Any,Share Used GenAI Last Week,Std Err,1.048698732
+2024-08-01,All,Any,Share Used GenAI Every Day Last Week,Mean,12.05274966
+2024-08-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.7283804859
+2024-08-01,Employed,For Work,Share Using GenAI,Mean,33.27128314
+2024-08-01,Employed,For Work,Share Using GenAI,Std Err,1.161414639
+2024-08-01,Employed,For Work,Share Used GenAI Last Week,Mean,28.19400297
+2024-08-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.096958196
+2024-08-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,12.10226107
+2024-08-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.8433290257
+2024-08-01,All,Non-Work,Share Using GenAI,Mean,36.02987257
+2024-08-01,All,Non-Work,Share Using GenAI,Std Err,1.056744135
+2024-08-01,All,Non-Work,Share Used GenAI Last Week,Mean,28.65203499
+2024-08-01,All,Non-Work,Share Used GenAI Last Week,Std Err,0.9957863394
+2024-08-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,6.884756094
+2024-08-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.568153012
+2024-11-01,All,Any,Share Using GenAI,Mean,46.33694907
+2024-11-01,All,Any,Share Using GenAI,Std Err,0.9851901516
+2024-11-01,All,Any,Share Used GenAI Last Week,Mean,38.19923669
+2024-11-01,All,Any,Share Used GenAI Last Week,Std Err,0.9775946771
+2024-11-01,All,Any,Share Used GenAI Every Day Last Week,Mean,8.922570301
+2024-11-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.569233199
+2024-11-01,Employed,For Work,Share Using GenAI,Mean,31.00843899
+2024-11-01,Employed,For Work,Share Using GenAI,Std Err,1.060268124
+2024-11-01,Employed,For Work,Share Used GenAI Last Week,Mean,26.36424676
+2024-11-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.009543725
+2024-11-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,9.090076443
+2024-11-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.6417751344
+2024-11-01,All,Non-Work,Share Using GenAI,Mean,39.28059115
+2024-11-01,All,Non-Work,Share Using GenAI,Std Err,0.9778827434
+2024-11-01,All,Non-Work,Share Used GenAI Last Week,Mean,32.04731987
+2024-11-01,All,Non-Work,Share Used GenAI Last Week,Std Err,0.9478724659
+2024-11-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,4.421738032
+2024-11-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.4211622106
+2025-02-01,All,Any,Share Using GenAI,Mean,47.97555285
+2025-02-01,All,Any,Share Using GenAI,Std Err,1.102918204
+2025-02-01,All,Any,Share Used GenAI Last Week,Mean,40.37903823
+2025-02-01,All,Any,Share Used GenAI Last Week,Std Err,1.093369571
+2025-02-01,All,Any,Share Used GenAI Every Day Last Week,Mean,10.97727943
+2025-02-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.7659627783
+2025-02-01,Employed,For Work,Share Using GenAI,Mean,32.74658004
+2025-02-01,Employed,For Work,Share Using GenAI,Std Err,1.193110694
+2025-02-01,Employed,For Work,Share Used GenAI Last Week,Mean,29.27846031
+2025-02-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.156906557
+2025-02-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,10.698748
+2025-02-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.8712141526
+2025-02-01,All,Non-Work,Share Using GenAI,Mean,41.93577638
+2025-02-01,All,Non-Work,Share Using GenAI,Std Err,1.098243881
+2025-02-01,All,Non-Work,Share Used GenAI Last Week,Mean,34.42017802
+2025-02-01,All,Non-Work,Share Used GenAI Last Week,Std Err,1.068246251
+2025-02-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,5.75622554
+2025-02-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.5730040332
+2025-05-01,All,Any,Share Using GenAI,Mean,51.86488737
+2025-05-01,All,Any,Share Using GenAI,Std Err,1.131402348
+2025-05-01,All,Any,Share Used GenAI Last Week,Mean,44.01658781
+2025-05-01,All,Any,Share Used GenAI Last Week,Std Err,1.131990245
+2025-05-01,All,Any,Share Used GenAI Every Day Last Week,Mean,12.27650994
+2025-05-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.7541857212
+2025-05-01,Employed,For Work,Share Using GenAI,Mean,35.07946376
+2025-05-01,Employed,For Work,Share Using GenAI,Std Err,1.17283228
+2025-05-01,Employed,For Work,Share Used GenAI Last Week,Mean,30.55298002
+2025-05-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.127861414
+2025-05-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,11.15003283
+2025-05-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.7793967731
+2025-05-01,All,Non-Work,Share Using GenAI,Mean,45.94212263
+2025-05-01,All,Non-Work,Share Using GenAI,Std Err,1.133914184
+2025-05-01,All,Non-Work,Share Used GenAI Last Week,Mean,38.28776291
+2025-05-01,All,Non-Work,Share Used GenAI Last Week,Std Err,1.110443856
+2025-05-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,7.235041175
+2025-05-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.6024762784
+2025-08-01,All,Any,Share Using GenAI,Mean,54.5391472
+2025-08-01,All,Any,Share Using GenAI,Std Err,1.089957671
+2025-08-01,All,Any,Share Used GenAI Last Week,Mean,46.84735646
+2025-08-01,All,Any,Share Used GenAI Last Week,Std Err,1.08369534
+2025-08-01,All,Any,Share Used GenAI Every Day Last Week,Mean,13.84826045
+2025-08-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.7030239441
+2025-08-01,Employed,For Work,Share Using GenAI,Mean,37.35947427
+2025-08-01,Employed,For Work,Share Using GenAI,Std Err,1.098522335
+2025-08-01,Employed,For Work,Share Used GenAI Last Week,Mean,32.01161008
+2025-08-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.040254039
+2025-08-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,12.56318435
+2025-08-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.6951740471
+2025-08-01,All,Non-Work,Share Using GenAI,Mean,48.58716828
+2025-08-01,All,Non-Work,Share Using GenAI,Std Err,1.088995541
+2025-08-01,All,Non-Work,Share Used GenAI Last Week,Mean,41.85008044
+2025-08-01,All,Non-Work,Share Used GenAI Last Week,Std Err,1.067010724
+2025-08-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,8.329429849
+2025-08-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.5940235578
+2025-11-01,All,Any,Share Using GenAI,Mean,56.0070905
+2025-11-01,All,Any,Share Using GenAI,Std Err,1.076519573
+2025-11-01,All,Any,Share Used GenAI Last Week,Mean,47.80357874
+2025-11-01,All,Any,Share Used GenAI Last Week,Std Err,1.066404326
+2025-11-01,All,Any,Share Used GenAI Every Day Last Week,Mean,13.24683374
+2025-11-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.6607874862
+2025-11-01,Employed,For Work,Share Using GenAI,Mean,40.64851306
+2025-11-01,Employed,For Work,Share Using GenAI,Std Err,1.102869346
+2025-11-01,Employed,For Work,Share Used GenAI Last Week,Mean,35.03817665
+2025-11-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.057054997
+2025-11-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,12.16375657
+2025-11-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.6952067854
+2025-11-01,All,Non-Work,Share Using GenAI,Mean,49.81311696
+2025-11-01,All,Non-Work,Share Using GenAI,Std Err,1.07268106
+2025-11-01,All,Non-Work,Share Used GenAI Last Week,Mean,42.77445127
+2025-11-01,All,Non-Work,Share Used GenAI Last Week,Std Err,1.04801699
+2025-11-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,7.556590042
+2025-11-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.5231365663
+2026-02-01,All,Any,Share Using GenAI,Mean,57.5648163
+2026-02-01,All,Any,Share Using GenAI,Std Err,1.112370783
+2026-02-01,All,Any,Share Used GenAI Last Week,Mean,50.43329872
+2026-02-01,All,Any,Share Used GenAI Last Week,Std Err,1.114742404
+2026-02-01,All,Any,Share Used GenAI Every Day Last Week,Mean,13.89233863
+2026-02-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.7261356322
+2026-02-01,Employed,For Work,Share Using GenAI,Mean,42.84055037
+2026-02-01,Employed,For Work,Share Using GenAI,Std Err,1.194270084
+2026-02-01,Employed,For Work,Share Used GenAI Last Week,Mean,37.30026433
+2026-02-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.150365064
+2026-02-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,12.23905785
+2026-02-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.7594954808
+2026-02-01,All,Non-Work,Share Using GenAI,Mean,50.97827088
+2026-02-01,All,Non-Work,Share Using GenAI,Std Err,1.114905703
+2026-02-01,All,Non-Work,Share Used GenAI Last Week,Mean,44.18812779
+2026-02-01,All,Non-Work,Share Used GenAI Last Week,Std Err,1.095774668
+2026-02-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,8.329857545
+2026-02-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.579186982
+2026-05-01,All,Any,Share Using GenAI,Mean,61.7802431
+2026-05-01,All,Any,Share Using GenAI,Std Err,1.071449051
+2026-05-01,All,Any,Share Used GenAI Last Week,Mean,54.20874249
+2026-05-01,All,Any,Share Used GenAI Last Week,Std Err,1.088208016
+2026-05-01,All,Any,Share Used GenAI Every Day Last Week,Mean,15.43863183
+2026-05-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.7086381719
+2026-05-01,Employed,For Work,Share Using GenAI,Mean,45.19931812
+2026-05-01,Employed,For Work,Share Using GenAI,Std Err,1.166196203
+2026-05-01,Employed,For Work,Share Used GenAI Last Week,Mean,39.23369721
+2026-05-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.120886926
+2026-05-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,13.69335283
+2026-05-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.720456911
+2026-05-01,All,Non-Work,Share Using GenAI,Mean,54.80779605
+2026-05-01,All,Non-Work,Share Using GenAI,Std Err,1.084108684
+2026-05-01,All,Non-Work,Share Used GenAI Last Week,Mean,47.91954409
+2026-05-01,All,Non-Work,Share Used GenAI Last Week,Std Err,1.081676319
+2026-05-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,9.659274391
+2026-05-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.5905081654
+2026-08-01,All,Any,Share Using GenAI,Mean,60.80648495
+2026-08-01,All,Any,Share Using GenAI,Std Err,1.017120294
+2026-08-01,All,Any,Share Used GenAI Last Week,Mean,53.84342237
+2026-08-01,All,Any,Share Used GenAI Last Week,Std Err,1.030019708
+2026-08-01,All,Any,Share Used GenAI Every Day Last Week,Mean,14.38059076
+2026-08-01,All,Any,Share Used GenAI Every Day Last Week,Std Err,0.6974995397
+2026-08-01,Employed,For Work,Share Using GenAI,Mean,40.54550025
+2026-08-01,Employed,For Work,Share Using GenAI,Std Err,1.061180451
+2026-08-01,Employed,For Work,Share Used GenAI Last Week,Mean,34.84420568
+2026-08-01,Employed,For Work,Share Used GenAI Last Week,Std Err,1.022002579
+2026-08-01,Employed,For Work,Share Used GenAI Every Day Last Week,Mean,11.46918344
+2026-08-01,Employed,For Work,Share Used GenAI Every Day Last Week,Std Err,0.6647291894
+2026-08-01,All,Non-Work,Share Using GenAI,Mean,55.10671365
+2026-08-01,All,Non-Work,Share Using GenAI,Std Err,1.026823529
+2026-08-01,All,Non-Work,Share Used GenAI Last Week,Mean,48.67727582
+2026-08-01,All,Non-Work,Share Used GenAI Last Week,Std Err,1.028920142
+2026-08-01,All,Non-Work,Share Used GenAI Every Day Last Week,Mean,9.105409831
+2026-08-01,All,Non-Work,Share Used GenAI Every Day Last Week,Std Err,0.5944674221
