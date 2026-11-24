@@ -41,15 +41,19 @@ fetch_sec_filings <- function(cik, cache_dir = "cache/sec") {
 # changed, so each is cached.
 fetch_sec_prospectus_tranches <- function(cik, accession, cache_dir = "cache/sec") {
   folder <- str_glue("https://www.sec.gov/Archives/edgar/data/{cik}/{str_remove_all(accession, '-')}")
-  files <- jsonlite::fromJSON(sec_get(str_glue("{folder}/index.json"), file.path(cache_dir, str_glue("{accession}.json"))))
-  prospectus <- str_subset(files$directory$item$name, "424b[235]\\.htm$")
+  # EDGAR stopped serving filing folders' index.json in November 2026, and
+  # index pages for some older filings, so the prospectus is read from the
+  # full submission, where it is the first document.
+  first_document <- sec_get(str_glue("{folder}/{accession}.txt"), file.path(cache_dir, str_glue("{accession}.txt"))) |>
+    read_file() |>
+    str_match("(?s)<DOCUMENT>.*?<FILENAME>([^\n]+).*?<TEXT>(.*?)</TEXT>")
 
-  if (length(prospectus) == 0) {
+  # Submissions from before HTML filings name no files and give no match.
+  if (!isTRUE(str_detect(first_document[, 2], "424b[235]\\.htm\\s*$"))) {
     return(NULL)
   }
 
-  text <- sec_get(str_glue("{folder}/{prospectus[1]}"), file.path(cache_dir, str_glue("{accession}.htm"))) |>
-    xml2::read_html() |>
+  text <- xml2::read_html(first_document[, 3]) |>
     xml2::xml_text() |>
     str_squish()
 
