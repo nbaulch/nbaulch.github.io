@@ -13,8 +13,10 @@ fetch_treasury_mspd_marketable <- function(from) {
     `page[number]` = page
   )
 
+  # The API has gone down for minutes at a time in the evening, when the refresh
+  # runs, so wait up to a few minutes before giving up.
   fetch_page <- \(page) {
-    httr::GET(url, query = query(page)) |>
+    httr::RETRY("GET", url, query = query(page), times = 6, pause_base = 10, pause_cap = 120) |>
       httr::stop_for_status(task = "fetch the Monthly Statement of the Public Debt from Treasury") |>
       httr::content(as = "parsed", simplifyVector = TRUE)
   }
