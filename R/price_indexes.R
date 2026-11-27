@@ -9,5 +9,8 @@ index_excluding <- function(price, spending, part_price, part_spending) {
   a <- 1 - share_before
   b <- share_before * part_change - aggregate_change^2 * share_after / part_change
   c <- -aggregate_change^2 * (1 - share_after)
-  cumprod(coalesce((-b + sqrt(b^2 - 4 * a * c)) / (2 * a), 1))
+  index <- cumprod(coalesce((-b + sqrt(b^2 - 4 * a * c)) / (2 * a), 1))
+  # Before the component's data start the remainder has no price, so the index
+  # starts there rather than holding flat at 1.
+  if_else(is.na(price) | is.na(part_price), NA, index)
 }
